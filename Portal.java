@@ -97,8 +97,8 @@ public class Portal extends JFrame {
 		layeredPane.add(p4, "name_3000739084100");
 		p4.setLayout(null);
 
-		JLabel lblNewLabel_7 = new JLabel("REGISTSRATION");
-		lblNewLabel_7.setBounds(337, 11, 298, 49);
+		JLabel lblNewLabel_7 = new JLabel("REGISTRATION");
+		lblNewLabel_7.setBounds(348, 11, 276, 49);
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		p4.add(lblNewLabel_7);
 
