@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -44,7 +45,15 @@ public class Portal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	Color defaultcolor, clickedcolor, yellow, white;
+
 	public Portal() {
+
+		defaultcolor = new Color(121, 188, 255);
+		clickedcolor = new Color(50, 50, 188);
+		yellow = new Color(255, 220, 0);
+		white = new Color(255, 255, 255);
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
@@ -55,7 +64,7 @@ public class Portal extends JFrame {
 		contentPane.setLayout(null);
 
 		layeredPane = new JLayeredPane();
-		layeredPane.setBounds(291, 0, 973, 681);
+		layeredPane.setBounds(291, 47, 973, 634);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 
@@ -86,10 +95,22 @@ public class Portal extends JFrame {
 		JPanel p4 = new JPanel();
 		p4.setBackground(new Color(255, 255, 255));
 		layeredPane.add(p4, "name_3000739084100");
+		p4.setLayout(null);
 
-		JLabel lblNewLabel_7 = new JLabel("PANEL4");
+		JLabel lblNewLabel_7 = new JLabel("REGISTSRATION");
+		lblNewLabel_7.setBounds(337, 11, 298, 49);
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		p4.add(lblNewLabel_7);
+
+		JLabel lblNewLabel_9 = new JLabel(
+				"<html>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n");
+		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_9.setBounds(170, 86, 632, 113);
+		p4.add(lblNewLabel_9);
+
+		JButton btnNewButton = new JButton("Register now");
+		btnNewButton.setBounds(389, 434, 194, 43);
+		p4.add(btnNewButton);
 
 		JPanel p5 = new JPanel();
 		p5.setBackground(new Color(255, 255, 255));
@@ -100,88 +121,162 @@ public class Portal extends JFrame {
 		p5.add(lblNewLabel_8);
 
 		JPanel b1 = new JPanel();
-		b1.setBackground(new Color(255, 255, 255));
-		b1.addMouseListener(new MouseAdapter() {
+		b1.setBackground(new Color(121, 188, 255));
+		b1.setBounds(0, 97, 291, 48);
+		contentPane.add(b1);
+		b1.setLayout(null);
+		JLabel m11 = new JLabel("Dashboard");
+		// ----------------------- BUTTON PRESS WILL CHANGE COLOR
+		// ----------------------- //
+
+		m11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				b1.setBackground(clickedcolor);
+				m11.setForeground(yellow);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				b1.setBackground(defaultcolor);
+				m11.setForeground(white);
+			}
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchPanel(p1);
 			}
 		});
-		b1.setBounds(0, 47, 291, 85);
-		contentPane.add(b1);
-		b1.setLayout(null);
-
-		JLabel lblNewLabel = new JLabel("Dashboard");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(76, 23, 139, 26);
-		b1.add(lblNewLabel);
+		m11.setForeground(new Color(255, 255, 255));
+		m11.setFont(new Font("Serif", Font.BOLD, 24));
+		m11.setBounds(35, 11, 230, 26);
+		b1.add(m11);
 
 		JPanel b2 = new JPanel();
-		b2.setBackground(new Color(255, 255, 255));
-		b2.addMouseListener(new MouseAdapter() {
+		b2.setBackground(new Color(121, 188, 255));
+
+		b2.setBounds(0, 156, 291, 48);
+		contentPane.add(b2);
+		b2.setLayout(null);
+
+		JLabel m22 = new JLabel("Attendance");
+		m22.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				b2.setBackground(clickedcolor);
+				m22.setForeground(yellow);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				b2.setBackground(defaultcolor);
+				m22.setForeground(white);
+			}
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchPanel(p2);
 			}
 		});
-		b2.setBounds(0, 174, 291, 85);
-		contentPane.add(b2);
-		b2.setLayout(null);
-
-		JLabel lblNewLabel_1 = new JLabel("Attendance");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(76, 23, 141, 26);
-		b2.add(lblNewLabel_1);
+		m22.setForeground(new Color(255, 255, 255));
+		m22.setFont(new Font("Serif", Font.BOLD, 24));
+		m22.setBounds(35, 11, 230, 26);
+		b2.add(m22);
 
 		JPanel b3 = new JPanel();
-		b3.setBackground(new Color(255, 255, 255));
-		b3.addMouseListener(new MouseAdapter() {
+		b3.setBackground(new Color(121, 188, 255));
+
+		b3.setBounds(0, 215, 291, 48);
+		contentPane.add(b3);
+		b3.setLayout(null);
+
+		JLabel m33 = new JLabel("Events");
+		m33.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				b3.setBackground(clickedcolor);
+				m33.setForeground(yellow);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				b3.setBackground(defaultcolor);
+				m33.setForeground(white);
+			}
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchPanel(p3);
 			}
 		});
-		b3.setBounds(0, 301, 291, 85);
-		contentPane.add(b3);
-		b3.setLayout(null);
-
-		JLabel lblNewLabel_2 = new JLabel("Events");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_2.setBounds(76, 23, 138, 26);
-		b3.add(lblNewLabel_2);
+		m33.setForeground(new Color(255, 255, 255));
+		m33.setFont(new Font("Serif", Font.BOLD, 24));
+		m33.setBounds(35, 11, 230, 26);
+		b3.add(m33);
 
 		JPanel b4 = new JPanel();
-		b4.setBackground(new Color(255, 255, 255));
-		b4.addMouseListener(new MouseAdapter() {
+		b4.setBackground(new Color(121, 188, 255));
+		b4.setBounds(0, 274, 291, 48);
+		contentPane.add(b4);
+		b4.setLayout(null);
+
+		JLabel m44 = new JLabel("Registration");
+		m44.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				b4.setBackground(clickedcolor);
+				m44.setForeground(yellow);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				b4.setBackground(defaultcolor);
+				m44.setForeground(white);
+			}
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchPanel(p4);
 			}
 		});
-		b4.setBounds(0, 428, 291, 85);
-		contentPane.add(b4);
-		b4.setLayout(null);
-
-		JLabel lblNewLabel_3 = new JLabel("Registration");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_3.setBounds(76, 23, 128, 26);
-		b4.add(lblNewLabel_3);
+		m44.setForeground(new Color(255, 255, 255));
+		m44.setFont(new Font("Serif", Font.BOLD, 24));
+		m44.setBounds(35, 11, 230, 26);
+		b4.add(m44);
 
 		JPanel b5 = new JPanel();
-		b5.setBackground(new Color(255, 255, 255));
-		b5.addMouseListener(new MouseAdapter() {
+		b5.setBackground(new Color(121, 188, 255));
+		b5.setBounds(0, 333, 291, 48);
+		contentPane.add(b5);
+		b5.setLayout(null);
+
+		JLabel m55 = new JLabel("Schedules");
+		m55.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				b5.setBackground(clickedcolor);
+				m55.setForeground(yellow);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				b5.setBackground(defaultcolor);
+				m55.setForeground(white);
+			}
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchPanel(p5);
 			}
 		});
-		b5.setBounds(0, 555, 291, 85);
-		contentPane.add(b5);
-		b5.setLayout(null);
+		m55.setForeground(new Color(255, 255, 255));
+		m55.setBounds(35, 8, 230, 32);
+		m55.setFont(new Font("Serif", Font.BOLD, 24));
+		b5.add(m55);
 
-		JLabel lblNewLabel_4 = new JLabel("Schedules");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_4.setBounds(76, 23, 142, 26);
-		b5.add(lblNewLabel_4);
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 255));
+		panel.setBounds(0, 0, 1264, 48);
+		contentPane.add(panel);
 	}
 }
