@@ -1,4 +1,5 @@
-<h1>Student Portal for CCST</h1>
-<br>• Do not alter the main branch without me
-<br>• Create another branch when you add functionalities or design to our program so I'll merge it after I see that it is okay
-<br>• Salamatss
+<h1>Student Portal for CCST<br>12-B-ICT</h1>
+<br><h3>(In Development)</h3>
+<br>• When adding new things like features or design changes to our program, just make a new branch for it. So that I can take a look and make sure everything's cool before merging it into the main project.
+<br>• Please refrain from making modifications directly to the main branch without prior consultation.
+<br>• Thanksss.
