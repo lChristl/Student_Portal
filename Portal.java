@@ -2,22 +2,27 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class Portal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private int mouseX, mouseY;
 	private JLayeredPane layeredPane;
-	private JPanel p1, p2, p3, p4, p5;
+	private JPanel m1, m2, m3, m4, m5;
 
 	/**
 	 * Launch the application.
@@ -35,6 +40,10 @@ public class Portal extends JFrame {
 		});
 	}
 
+	/**
+	 * Create the frame.
+	 */
+
 	public void switchPanel(JPanel panel) {
 		layeredPane.removeAll();
 		layeredPane.add(panel);
@@ -42,241 +51,375 @@ public class Portal extends JFrame {
 		layeredPane.revalidate();
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	Color defaultcolor, clickedcolor, yellow, white;
+	Color defaultcolor, clickedcolor, black, white;
 
 	public Portal() {
 
-		defaultcolor = new Color(121, 188, 255);
-		clickedcolor = new Color(50, 50, 188);
-		yellow = new Color(255, 220, 0);
+		defaultcolor = new Color(255, 255, 255);
+		clickedcolor = new Color(50, 50, 255);
+		black = new Color(0, 0, 0);
 		white = new Color(255, 255, 255);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(121, 188, 255));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+//*******************************||SET-ROUND-RECTANGLE-TO-PANEL||**********************************************//
+
+		setUndecorated(true);
+		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));
+
+//*************************************************************************************************************//
+
+//********************************||FUNCTION-TO-ADD-MOUSE-DRAGGING-ON-THE-PANE||********************************//
+
+		contentPane.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				mouseX = e.getX();
+				mouseY = e.getY();
+			}
+		});
+		contentPane.addMouseMotionListener(new MouseAdapter() {
+			public void mouseDragged(MouseEvent e) {
+				int x = e.getXOnScreen() - mouseX;
+				int y = e.getYOnScreen() - mouseY;
+				setLocation(x, y);
+			}
+		});
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		layeredPane = new JLayeredPane();
-		layeredPane.setBounds(291, 47, 973, 634);
-		contentPane.add(layeredPane);
-		layeredPane.setLayout(new CardLayout(0, 0));
+//*************************************************************************************************************//
 
-		JPanel p1 = new JPanel();
-		p1.setBackground(new Color(255, 255, 255));
-		layeredPane.add(p1, "name_2996315453700");
-
-		JLabel lblNewLabel_5 = new JLabel("PANEL1");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		p1.add(lblNewLabel_5);
-
-		JPanel p2 = new JPanel();
-		p2.setBackground(new Color(255, 255, 255));
-		layeredPane.add(p2, "name_2998324163400");
-
-		JLabel lblNewLabel_6 = new JLabel("PANEL2");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		p2.add(lblNewLabel_6);
-
-		JPanel p3 = new JPanel();
-		p3.setBackground(new Color(255, 255, 255));
-		layeredPane.add(p3, "name_2999651323700");
-
-		JLabel lblPanel = new JLabel("PANEL3");
-		lblPanel.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		p3.add(lblPanel);
-
-		JPanel p4 = new JPanel();
-		p4.setBackground(new Color(255, 255, 255));
-		layeredPane.add(p4, "name_3000739084100");
-		p4.setLayout(null);
-
-		JLabel lblNewLabel_7 = new JLabel("REGISTRATION");
-		lblNewLabel_7.setBounds(348, 11, 276, 49);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		p4.add(lblNewLabel_7);
-
-		JLabel lblNewLabel_9 = new JLabel(
-				"<html>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n");
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_9.setBounds(170, 86, 632, 113);
-		p4.add(lblNewLabel_9);
-
-		JButton btnNewButton = new JButton("Register now");
-		btnNewButton.setBounds(389, 434, 194, 43);
-		p4.add(btnNewButton);
-
-		JPanel p5 = new JPanel();
-		p5.setBackground(new Color(255, 255, 255));
-		layeredPane.add(p5, "name_3001971543700");
-
-		JLabel lblNewLabel_8 = new JLabel("PANEL5");
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		p5.add(lblNewLabel_8);
+		JPanel navypanel1 = new JPanel();
+		navypanel1.setBounds(0, 0, 300, 720);
+		navypanel1.setBackground(new Color(0, 27, 70));
+		contentPane.add(navypanel1);
+		navypanel1.setLayout(null);
 
 		JPanel b1 = new JPanel();
-		b1.setBackground(new Color(121, 188, 255));
-		b1.setBounds(0, 97, 291, 48);
-		contentPane.add(b1);
+		b1.setBounds(33, 70, 234, 52);
+		navypanel1.add(b1);
 		b1.setLayout(null);
-		JLabel m11 = new JLabel("Dashboard");
-		// ----------------------- BUTTON PRESS WILL CHANGE COLOR
-		// ----------------------- //
 
-		m11.addMouseListener(new MouseAdapter() {
+//**********************************||MOUSE-CLICK-ACTION||****************************************************//
+
+		JLabel c1 = new JLabel("DASHBOARD");
+		c1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				switchPanel(m1);
+			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
 				b1.setBackground(clickedcolor);
-				m11.setForeground(yellow);
+				c1.setForeground(white);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				b1.setBackground(defaultcolor);
-				m11.setForeground(white);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(p1);
+				c1.setForeground(black);
 			}
 		});
-		m11.setForeground(new Color(255, 255, 255));
-		m11.setFont(new Font("Serif", Font.BOLD, 24));
-		m11.setBounds(35, 11, 230, 26);
-		b1.add(m11);
+		c1.setHorizontalAlignment(SwingConstants.CENTER);
+		c1.setBounds(0, 0, 234, 52);
+		c1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		b1.add(c1);
 
 		JPanel b2 = new JPanel();
-		b2.setBackground(new Color(121, 188, 255));
-
-		b2.setBounds(0, 156, 291, 48);
-		contentPane.add(b2);
+		b2.setBounds(27, 192, 234, 52);
+		navypanel1.add(b2);
 		b2.setLayout(null);
 
-		JLabel m22 = new JLabel("Attendance");
-		m22.addMouseListener(new MouseAdapter() {
+		JLabel c2 = new JLabel("ATTENDANCE");
+		c2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				switchPanel(m2);
+			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
 				b2.setBackground(clickedcolor);
-				m22.setForeground(yellow);
+				c2.setForeground(white);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				b2.setBackground(defaultcolor);
-				m22.setForeground(white);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(p2);
+				c2.setForeground(black);
 			}
 		});
-		m22.setForeground(new Color(255, 255, 255));
-		m22.setFont(new Font("Serif", Font.BOLD, 24));
-		m22.setBounds(35, 11, 230, 26);
-		b2.add(m22);
+		c2.setHorizontalAlignment(SwingConstants.CENTER);
+		c2.setSize(234, 52);
+		c2.setLocation(0, 0);
+		c2.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		b2.add(c2);
 
 		JPanel b3 = new JPanel();
-		b3.setBackground(new Color(121, 188, 255));
-
-		b3.setBounds(0, 215, 291, 48);
-		contentPane.add(b3);
+		b3.setBounds(33, 314, 234, 52);
+		navypanel1.add(b3);
 		b3.setLayout(null);
 
-		JLabel m33 = new JLabel("Events");
-		m33.addMouseListener(new MouseAdapter() {
+		JLabel c3 = new JLabel("EVENT CALENDAR");
+		c3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				switchPanel(m3);
+			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
 				b3.setBackground(clickedcolor);
-				m33.setForeground(yellow);
+				c3.setForeground(white);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				b3.setBackground(defaultcolor);
-				m33.setForeground(white);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(p3);
+				c3.setForeground(black);
 			}
 		});
-		m33.setForeground(new Color(255, 255, 255));
-		m33.setFont(new Font("Serif", Font.BOLD, 24));
-		m33.setBounds(35, 11, 230, 26);
-		b3.add(m33);
+
+		c3.setHorizontalAlignment(SwingConstants.CENTER);
+		c3.setBounds(0, 0, 234, 52);
+		c3.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		b3.add(c3);
 
 		JPanel b4 = new JPanel();
-		b4.setBackground(new Color(121, 188, 255));
-		b4.setBounds(0, 274, 291, 48);
-		contentPane.add(b4);
+		b4.setBounds(33, 436, 234, 52);
+		navypanel1.add(b4);
 		b4.setLayout(null);
 
-		JLabel m44 = new JLabel("Registration");
-		m44.addMouseListener(new MouseAdapter() {
+		JLabel c4 = new JLabel("REGISTRATION");
+		c4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				switchPanel(m4);
+			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
 				b4.setBackground(clickedcolor);
-				m44.setForeground(yellow);
+				c4.setForeground(white);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				b4.setBackground(defaultcolor);
-				m44.setForeground(white);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(p4);
+				c4.setForeground(black);
 			}
 		});
-		m44.setForeground(new Color(255, 255, 255));
-		m44.setFont(new Font("Serif", Font.BOLD, 24));
-		m44.setBounds(35, 11, 230, 26);
-		b4.add(m44);
+		c4.setHorizontalAlignment(SwingConstants.CENTER);
+		c4.setBounds(0, 0, 234, 52);
+		c4.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		b4.add(c4);
 
 		JPanel b5 = new JPanel();
-		b5.setBackground(new Color(121, 188, 255));
-		b5.setBounds(0, 333, 291, 48);
-		contentPane.add(b5);
+		b5.setBounds(33, 558, 234, 52);
+		navypanel1.add(b5);
 		b5.setLayout(null);
 
-		JLabel m55 = new JLabel("Schedules");
-		m55.addMouseListener(new MouseAdapter() {
+		JLabel c5 = new JLabel("SCHEDULES");
+		c5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				switchPanel(m5);
+			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
 				b5.setBackground(clickedcolor);
-				m55.setForeground(yellow);
+				c5.setForeground(white);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				b5.setBackground(defaultcolor);
-				m55.setForeground(white);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(p5);
+				c5.setForeground(black);
 			}
 		});
-		m55.setForeground(new Color(255, 255, 255));
-		m55.setBounds(35, 8, 230, 32);
-		m55.setFont(new Font("Serif", Font.BOLD, 24));
-		b5.add(m55);
+		c5.setHorizontalAlignment(SwingConstants.CENTER);
+		c5.setBounds(0, 0, 234, 52);
+		c5.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		b5.add(c5);
+
+		JPanel navypanel2 = new JPanel();
+		navypanel2.setBounds(980, 0, 300, 720);
+		navypanel2.setBackground(new Color(0, 27, 70));
+		contentPane.add(navypanel2);
+		navypanel2.setLayout(null);
+
+//******************************************************************************//		
+
+//********************************||CLOSE-SOFTWARE||***************************//
+
+		JButton exitbutton = new JButton("Exit\r\n");
+		exitbutton.setBorder(null);
+		exitbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+
+//****************************************************************************//		
+
+		exitbutton.setForeground(Color.WHITE);
+		exitbutton.setBackground(new Color(255, 81, 81));
+		exitbutton.setBounds(190, 11, 73, 23);
+		navypanel2.add(exitbutton);
+
+		layeredPane = new JLayeredPane();
+		layeredPane.setBounds(299, 0, 683, 720);
+		contentPane.add(layeredPane);
+		layeredPane.setLayout(new CardLayout(0, 0));
+
+		m1 = new JPanel();
+		m1.setBackground(new Color(255, 255, 255));
+		layeredPane.add(m1, "name_24052310350600");
+		m1.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 128, 255));
-		panel.setBounds(0, 0, 1264, 48);
-		contentPane.add(panel);
+		panel.setBounds(10, 15, 663, 101);
+		m1.add(panel);
+		panel.setBackground(new Color(0, 27, 70));
+		panel.setLayout(null);
+
+		JLabel c1_1 = new JLabel("DASHBOARD");
+		c1_1.setForeground(new Color(255, 255, 255));
+		c1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1.setBounds(214, 24, 234, 52);
+		panel.add(c1_1);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBackground(new Color(0, 27, 70));
+		panel_1.setBounds(10, 131, 663, 574);
+		m1.add(panel_1);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(255, 255, 255));
+		panel_2.setBounds(10, 11, 643, 552);
+		panel_1.add(panel_2);
+
+		m2 = new JPanel();
+		m2.setBackground(new Color(255, 255, 255));
+		layeredPane.add(m2, "name_24052330294400");
+		m2.setLayout(null);
+
+		JPanel panel_4 = new JPanel();
+		panel_4.setLayout(null);
+		panel_4.setBackground(new Color(0, 27, 70));
+		panel_4.setBounds(10, 15, 663, 101);
+		m2.add(panel_4);
+
+		JLabel c1_1_2 = new JLabel("ATTENDANCE");
+		c1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_2.setForeground(Color.WHITE);
+		c1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_2.setBounds(181, 24, 300, 52);
+		panel_4.add(c1_1_2);
+
+		JPanel panel_1_2 = new JPanel();
+		panel_1_2.setLayout(null);
+		panel_1_2.setBackground(new Color(0, 27, 70));
+		panel_1_2.setBounds(10, 131, 663, 574);
+		m2.add(panel_1_2);
+
+		JPanel panel_2_2 = new JPanel();
+		panel_2_2.setBackground(Color.WHITE);
+		panel_2_2.setBounds(10, 11, 643, 552);
+		panel_1_2.add(panel_2_2);
+
+		m3 = new JPanel();
+		m3.setBackground(new Color(255, 255, 255));
+		layeredPane.add(m3, "name_24052350347900");
+		m3.setLayout(null);
+
+		JPanel panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBackground(new Color(0, 27, 70));
+		panel_5.setBounds(10, 15, 663, 101);
+		m3.add(panel_5);
+
+		JLabel c1_1_3 = new JLabel("EVENT CALENDAR");
+		c1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_3.setForeground(Color.WHITE);
+		c1_1_3.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_3.setBounds(131, 24, 400, 52);
+		panel_5.add(c1_1_3);
+
+		JPanel panel_1_3 = new JPanel();
+		panel_1_3.setLayout(null);
+		panel_1_3.setBackground(new Color(0, 27, 70));
+		panel_1_3.setBounds(10, 131, 663, 574);
+		m3.add(panel_1_3);
+
+		JPanel panel_2_3 = new JPanel();
+		panel_2_3.setBackground(Color.WHITE);
+		panel_2_3.setBounds(10, 11, 643, 552);
+		panel_1_3.add(panel_2_3);
+
+		m4 = new JPanel();
+		m4.setBackground(new Color(255, 255, 255));
+		layeredPane.add(m4, "name_24052371200600");
+		m4.setLayout(null);
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBackground(new Color(0, 27, 70));
+		panel_3.setBounds(10, 15, 663, 101);
+		m4.add(panel_3);
+
+		JLabel c1_1_1 = new JLabel("REGISTRATION");
+		c1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_1.setForeground(Color.WHITE);
+		c1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_1.setBounds(154, 24, 355, 52);
+		panel_3.add(c1_1_1);
+
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setLayout(null);
+		panel_1_1.setBackground(new Color(0, 27, 70));
+		panel_1_1.setBounds(10, 131, 663, 574);
+		m4.add(panel_1_1);
+
+		JPanel panel_2_1 = new JPanel();
+		panel_2_1.setBackground(Color.WHITE);
+		panel_2_1.setBounds(10, 11, 643, 552);
+		panel_1_1.add(panel_2_1);
+
+		m5 = new JPanel();
+		m5.setBackground(new Color(255, 255, 255));
+		layeredPane.add(m5, "name_24052401893000");
+		m5.setLayout(null);
+
+		JPanel panel_6 = new JPanel();
+		panel_6.setLayout(null);
+		panel_6.setBackground(new Color(0, 27, 70));
+		panel_6.setBounds(10, 15, 663, 101);
+		m5.add(panel_6);
+
+		JLabel c1_1_4 = new JLabel("SCHEDULES");
+		c1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_4.setForeground(Color.WHITE);
+		c1_1_4.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_4.setBounds(214, 24, 234, 52);
+		panel_6.add(c1_1_4);
+
+		JPanel panel_1_4 = new JPanel();
+		panel_1_4.setLayout(null);
+		panel_1_4.setBackground(new Color(0, 27, 70));
+		panel_1_4.setBounds(10, 131, 663, 574);
+		m5.add(panel_1_4);
+
+		JPanel panel_2_4 = new JPanel();
+		panel_2_4.setBackground(Color.WHITE);
+		panel_2_4.setBounds(10, 11, 643, 552);
+		panel_1_4.add(panel_2_4);
 	}
 }
