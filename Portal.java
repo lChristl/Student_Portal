@@ -307,19 +307,6 @@ public class Portal extends JFrame {
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 
-		JButton btnNewButton = new JButton("Register Now");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Registration second = new Registration();
-				second.setVisible(true);
-			}
-		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(0, 27, 70));
-		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton.setBounds(238, 469, 166, 38);
-		panel_2.add(btnNewButton);
-
 		m2 = new JPanel();
 		m2.setBackground(new Color(255, 255, 255));
 		layeredPane.add(m2, "name_24052330294400");
@@ -406,6 +393,14 @@ public class Portal extends JFrame {
 		panel_2_1.setBackground(Color.WHITE);
 		panel_2_1.setBounds(10, 11, 643, 552);
 		panel_1_1.add(panel_2_1);
+		panel_2_1.setLayout(null);
+
+		JButton btnNewButton = new JButton("Register Now");
+		btnNewButton.setBounds(259, 488, 125, 27);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		btnNewButton.setBackground(new Color(0, 27, 70));
+		panel_2_1.add(btnNewButton);
 
 		m5 = new JPanel();
 		m5.setBackground(new Color(255, 255, 255));
