@@ -158,6 +158,11 @@ public class Login extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_1.setBounds(263, 151, 103, 23);
 		panel.add(btnNewButton_1);
+
+		JLabel imgpanel = new JLabel("");
+		imgpanel.setBounds(0, -20, 854, 438);
+		contentPane.add(imgpanel);
+		imgpanel.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-Portal\\src\\image\\ccstbackg.jpg"));
 //*******************************||SET-ROUND-RECTANGLE-TO-PANEL||**********************************************//
 		setUndecorated(true);
 		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));
@@ -176,10 +181,5 @@ public class Login extends JFrame {
 				setLocation(x, y);
 			}
 		});
-
-		JLabel imgpanel = new JLabel("");
-		imgpanel.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-Portal\\src\\image\\ccst.jpg"));
-		imgpanel.setBounds(0, 0, 854, 480);
-		contentPane.add(imgpanel);
 	}
 }
