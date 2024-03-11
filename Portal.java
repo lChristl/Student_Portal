@@ -396,7 +396,13 @@ public class Portal extends JFrame {
 		panel_2_1.setLayout(null);
 
 		JButton btnNewButton = new JButton("Register Now");
-		btnNewButton.setBounds(259, 488, 125, 27);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Registration second = new Registration();
+				second.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(251, 488, 140, 35);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		btnNewButton.setBackground(new Color(0, 27, 70));
