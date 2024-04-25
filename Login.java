@@ -105,10 +105,10 @@ public class Login extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JLabel lblNewLabel_2 = new JLabel("Username");
+		JLabel lblNewLabel_2 = new JLabel("Student ID No.");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(45, 61, 92, 14);
+		lblNewLabel_2.setBounds(45, 61, 127, 14);
 		panel.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Password");
@@ -136,7 +136,7 @@ public class Login extends JFrame {
 				String user = uname.getText();
 				String password = pass.getText();
 
-				if (user.equals("user") && password.equals("password")) {
+				if (user.equals("05-00-3172") && password.equals("password")) {
 					JOptionPane.showMessageDialog(null, "Login Successful!");
 
 					Portal second = new Portal();
@@ -152,8 +152,14 @@ public class Login extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.setBounds(80, 151, 103, 23);
 		panel.add(btnNewButton);
-
+//*****************||CREATE-ACCOUNT||**********************//	
 		JButton btnNewButton_1 = new JButton("Sign Up");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Signup second = new Signup();
+				second.setVisible(true);
+			}
+		});
 		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_1.setBounds(263, 151, 103, 23);
