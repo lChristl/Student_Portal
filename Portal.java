@@ -22,7 +22,7 @@ public class Portal extends JFrame {
 	private JPanel contentPane;
 	private int mouseX, mouseY;
 	private JLayeredPane layeredPane;
-	private JPanel m1, m2, m3, m4, m5;
+	private JPanel m1, m3, m4;
 
 	/**
 	 * Launch the application.
@@ -98,7 +98,7 @@ public class Portal extends JFrame {
 		navypanel1.setLayout(null);
 
 		JPanel b1 = new JPanel();
-		b1.setBounds(33, 70, 234, 52);
+		b1.setBounds(33, 399, 234, 52);
 		navypanel1.add(b1);
 		b1.setLayout(null);
 
@@ -128,38 +128,8 @@ public class Portal extends JFrame {
 		c1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		b1.add(c1);
 
-		JPanel b2 = new JPanel();
-		b2.setBounds(27, 192, 234, 52);
-		navypanel1.add(b2);
-		b2.setLayout(null);
-
-		JLabel c2 = new JLabel("ATTENDANCE");
-		c2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(m2);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				b2.setBackground(clickedcolor);
-				c2.setForeground(white);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				b2.setBackground(defaultcolor);
-				c2.setForeground(black);
-			}
-		});
-		c2.setHorizontalAlignment(SwingConstants.CENTER);
-		c2.setSize(234, 52);
-		c2.setLocation(0, 0);
-		c2.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		b2.add(c2);
-
 		JPanel b3 = new JPanel();
-		b3.setBounds(33, 314, 234, 52);
+		b3.setBounds(33, 579, 234, 52);
 		navypanel1.add(b3);
 		b3.setLayout(null);
 
@@ -189,11 +159,13 @@ public class Portal extends JFrame {
 		b3.add(c3);
 
 		JPanel b4 = new JPanel();
-		b4.setBounds(33, 436, 234, 52);
+		b4.setBounds(33, 488, 234, 52);
 		navypanel1.add(b4);
 		b4.setLayout(null);
 
 		JLabel c4 = new JLabel("REGISTRATION");
+		c4.setBounds(0, 0, 234, 52);
+		b4.add(c4);
 		c4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -213,38 +185,7 @@ public class Portal extends JFrame {
 			}
 		});
 		c4.setHorizontalAlignment(SwingConstants.CENTER);
-		c4.setBounds(0, 0, 234, 52);
 		c4.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		b4.add(c4);
-
-		JPanel b5 = new JPanel();
-		b5.setBounds(33, 558, 234, 52);
-		navypanel1.add(b5);
-		b5.setLayout(null);
-
-		JLabel c5 = new JLabel("SCHEDULES");
-		c5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(m5);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				b5.setBackground(clickedcolor);
-				c5.setForeground(white);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				b5.setBackground(defaultcolor);
-				c5.setForeground(black);
-			}
-		});
-		c5.setHorizontalAlignment(SwingConstants.CENTER);
-		c5.setBounds(0, 0, 234, 52);
-		c5.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		b5.add(c5);
 
 		JPanel navypanel2 = new JPanel();
 		navypanel2.setBounds(980, 0, 300, 720);
@@ -270,6 +211,42 @@ public class Portal extends JFrame {
 		exitbutton.setBackground(new Color(255, 81, 81));
 		exitbutton.setBounds(190, 11, 73, 23);
 		navypanel2.add(exitbutton);
+
+		JLabel lblNewLabel = new JLabel("NAME:");
+		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(21, 229, 269, 31);
+		navypanel2.add(lblNewLabel);
+
+		JLabel lblStudentNo = new JLabel("STUDENT NUMBER:");
+		lblStudentNo.setForeground(Color.WHITE);
+		lblStudentNo.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblStudentNo.setBounds(21, 267, 269, 31);
+		navypanel2.add(lblStudentNo);
+
+		JLabel lblStrand = new JLabel("STRAND:");
+		lblStrand.setForeground(Color.WHITE);
+		lblStrand.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblStrand.setBounds(21, 335, 269, 31);
+		navypanel2.add(lblStrand);
+
+		JLabel lblSection = new JLabel("SECTION:");
+		lblSection.setForeground(Color.WHITE);
+		lblSection.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblSection.setBounds(21, 377, 269, 31);
+		navypanel2.add(lblSection);
+
+		JLabel lblSchoolYear = new JLabel("SCHOOL YEAR:");
+		lblSchoolYear.setForeground(Color.WHITE);
+		lblSchoolYear.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblSchoolYear.setBounds(21, 419, 269, 31);
+		navypanel2.add(lblSchoolYear);
+
+		JLabel lblContactNo = new JLabel("CONTACT NUMBER:");
+		lblContactNo.setForeground(Color.WHITE);
+		lblContactNo.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblContactNo.setBounds(21, 489, 269, 31);
+		navypanel2.add(lblContactNo);
 
 		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(299, 0, 683, 720);
@@ -306,34 +283,34 @@ public class Portal extends JFrame {
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 
-		m2 = new JPanel();
-		m2.setBackground(new Color(255, 255, 255));
-		layeredPane.add(m2, "name_24052330294400");
-		m2.setLayout(null);
-
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(null);
 		panel_4.setBackground(new Color(0, 27, 70));
-		panel_4.setBounds(10, 15, 663, 101);
-		m2.add(panel_4);
+		panel_4.setBounds(250, 112, 383, 429);
+		panel_2.add(panel_4);
 
-		JLabel c1_1_2 = new JLabel("ATTENDANCE");
+		JLabel c1_1_2 = new JLabel("SCHOOL ANNOUNCEMENTS");
 		c1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		c1_1_2.setForeground(Color.WHITE);
-		c1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		c1_1_2.setBounds(181, 24, 300, 52);
+		c1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		c1_1_2.setBounds(10, 11, 363, 52);
 		panel_4.add(c1_1_2);
 
-		JPanel panel_1_2 = new JPanel();
-		panel_1_2.setLayout(null);
-		panel_1_2.setBackground(new Color(0, 27, 70));
-		panel_1_2.setBounds(10, 131, 663, 574);
-		m2.add(panel_1_2);
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(new Color(0, 27, 70));
+		panel_6.setBounds(10, 112, 224, 199);
+		panel_2.add(panel_6);
 
-		JPanel panel_2_2 = new JPanel();
-		panel_2_2.setBackground(Color.WHITE);
-		panel_2_2.setBounds(10, 11, 643, 552);
-		panel_1_2.add(panel_2_2);
+		JPanel panel_6_1 = new JPanel();
+		panel_6_1.setBackground(new Color(0, 27, 70));
+		panel_6_1.setBounds(10, 342, 224, 199);
+		panel_2.add(panel_6_1);
+
+		JLabel lblNewLabel_1 = new JLabel("<html>WELCOME, [NAME] EXPERIENCE THE JOY OF LEARNING");
+		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(49, 11, 544, 90);
+		panel_2.add(lblNewLabel_1);
 
 		m3 = new JPanel();
 		m3.setBackground(new Color(255, 255, 255));
@@ -406,34 +383,5 @@ public class Portal extends JFrame {
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		btnNewButton.setBackground(new Color(0, 27, 70));
 		panel_2_1.add(btnNewButton);
-
-		m5 = new JPanel();
-		m5.setBackground(new Color(255, 255, 255));
-		layeredPane.add(m5, "name_24052401893000");
-		m5.setLayout(null);
-
-		JPanel panel_6 = new JPanel();
-		panel_6.setLayout(null);
-		panel_6.setBackground(new Color(0, 27, 70));
-		panel_6.setBounds(10, 15, 663, 101);
-		m5.add(panel_6);
-
-		JLabel c1_1_4 = new JLabel("SCHEDULES");
-		c1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
-		c1_1_4.setForeground(Color.WHITE);
-		c1_1_4.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		c1_1_4.setBounds(214, 24, 234, 52);
-		panel_6.add(c1_1_4);
-
-		JPanel panel_1_4 = new JPanel();
-		panel_1_4.setLayout(null);
-		panel_1_4.setBackground(new Color(0, 27, 70));
-		panel_1_4.setBounds(10, 131, 663, 574);
-		m5.add(panel_1_4);
-
-		JPanel panel_2_4 = new JPanel();
-		panel_2_4.setBackground(Color.WHITE);
-		panel_2_4.setBounds(10, 11, 643, 552);
-		panel_1_4.add(panel_2_4);
 	}
 }
