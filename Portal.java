@@ -22,7 +22,7 @@ public class Portal extends JFrame {
 	private JPanel contentPane;
 	private int mouseX, mouseY;
 	private JLayeredPane layeredPane;
-	private JPanel m1, m3, m4;
+	private JPanel m1, m3, m2;
 
 	/**
 	 * Launch the application.
@@ -163,13 +163,13 @@ public class Portal extends JFrame {
 		navypanel1.add(b4);
 		b4.setLayout(null);
 
-		JLabel c4 = new JLabel("REGISTRATION");
+		JLabel c4 = new JLabel("CURRICULUM");
 		c4.setBounds(0, 0, 234, 52);
 		b4.add(c4);
 		c4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchPanel(m4);
+				switchPanel(m2);
 			}
 
 			@Override
@@ -247,6 +247,10 @@ public class Portal extends JFrame {
 		lblContactNo.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
 		lblContactNo.setBounds(21, 489, 269, 31);
 		navypanel2.add(lblContactNo);
+
+		JPanel panel_7 = new JPanel();
+		panel_7.setBounds(75, 68, 150, 150);
+		navypanel2.add(panel_7);
 
 		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(299, 0, 683, 720);
@@ -341,18 +345,18 @@ public class Portal extends JFrame {
 		panel_2_3.setBounds(10, 11, 643, 552);
 		panel_1_3.add(panel_2_3);
 
-		m4 = new JPanel();
-		m4.setBackground(new Color(255, 255, 255));
-		layeredPane.add(m4, "name_24052371200600");
-		m4.setLayout(null);
+		m2 = new JPanel();
+		m2.setBackground(new Color(255, 255, 255));
+		layeredPane.add(m2, "name_24052371200600");
+		m2.setLayout(null);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
 		panel_3.setBackground(new Color(0, 27, 70));
 		panel_3.setBounds(10, 15, 663, 101);
-		m4.add(panel_3);
+		m2.add(panel_3);
 
-		JLabel c1_1_1 = new JLabel("REGISTRATION");
+		JLabel c1_1_1 = new JLabel("CURRICULUM");
 		c1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		c1_1_1.setForeground(Color.WHITE);
 		c1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
@@ -363,25 +367,12 @@ public class Portal extends JFrame {
 		panel_1_1.setLayout(null);
 		panel_1_1.setBackground(new Color(0, 27, 70));
 		panel_1_1.setBounds(10, 131, 663, 574);
-		m4.add(panel_1_1);
+		m2.add(panel_1_1);
 
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setBackground(Color.WHITE);
 		panel_2_1.setBounds(10, 11, 643, 552);
 		panel_1_1.add(panel_2_1);
 		panel_2_1.setLayout(null);
-
-		JButton btnNewButton = new JButton("Register Now");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Registration second = new Registration();
-				second.setVisible(true);
-			}
-		});
-		btnNewButton.setBounds(251, 488, 140, 35);
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton.setBackground(new Color(0, 27, 70));
-		panel_2_1.add(btnNewButton);
 	}
 }

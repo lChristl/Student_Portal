@@ -7,7 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -57,11 +56,6 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JLabel logo = new JLabel("New label");
-		logo.setBounds(10, 11, 100, 100);
-		contentPane.add(logo);
-		logo.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-Portal\\src\\image\\ccst-icon.png"));
 
 		JPanel navypanel2 = new JPanel();
 		navypanel2.setLayout(null);
@@ -158,6 +152,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Signup second = new Signup();
 				second.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton_1.setBackground(new Color(255, 255, 255));
@@ -165,10 +160,17 @@ public class Login extends JFrame {
 		btnNewButton_1.setBounds(263, 151, 103, 23);
 		panel.add(btnNewButton_1);
 
-		JLabel imgpanel = new JLabel("");
-		imgpanel.setBounds(0, -20, 854, 438);
-		contentPane.add(imgpanel);
-		imgpanel.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-Portal\\src\\image\\ccstbackg.jpg"));
+		JPanel navypanel2_1 = new JPanel();
+		navypanel2_1.setLayout(null);
+		navypanel2_1.setBackground(new Color(0, 27, 70));
+		navypanel2_1.setBounds(0, 0, 17, 480);
+		contentPane.add(navypanel2_1);
+
+		JPanel navypanel2_1_1 = new JPanel();
+		navypanel2_1_1.setLayout(null);
+		navypanel2_1_1.setBackground(new Color(0, 27, 70));
+		navypanel2_1_1.setBounds(837, 0, 17, 480);
+		contentPane.add(navypanel2_1_1);
 //*******************************||SET-ROUND-RECTANGLE-TO-PANEL||**********************************************//
 		setUndecorated(true);
 		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));
