@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,10 +25,13 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private int mouseX, mouseY;
+	Connection conn;
+	PreparedStatement pst;
+	ResultSet rs;
+	private JTextField uname;
+	private JPasswordField pass;
+	private final JPanel navypanel1 = new JPanel();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,18 +45,9 @@ public class Login extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-
-	private JTextField uname;
-	private JPasswordField pass;
-	private final JPanel navypanel1 = new JPanel();
-
 	public Login() {
-
+		conn = AccessDB.conn();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		setBounds(100, 100, 854, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,7 +70,7 @@ public class Login extends JFrame {
 		navypanel1.setBounds(0, 0, 854, 70);
 		contentPane.add(navypanel1);
 		navypanel1.setLayout(null);
-		// ********************************||EXIT-BUTTON||********************************//
+
 		JButton btnNewButton_2 = new JButton("Exit\r\n");
 		btnNewButton_2.setBorder(null);
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -122,31 +119,38 @@ public class Login extends JFrame {
 		pass.setBounds(182, 86, 217, 20);
 		panel.add(pass);
 
-//******************************||SIGN-IN||*******************************************//
-//*****************||OPENS-SECOND-PANEL-THEN-CLOSE-CURRENT-PANEL**********************//			
 		JButton btnNewButton = new JButton("Sign In");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String user = uname.getText();
-				String password = pass.getText();
+				String username = uname.getText();
+				char[] password = pass.getPassword();
+				String userpassword = String.valueOf(password);
+				try {
+					String sqlquery = "SELECT * FROM Userlogin WHERE user_name = ? and user_password = ? ";
+					pst = conn.prepareStatement(sqlquery);
+					pst.setString(1, username);
+					pst.setString(2, userpassword);
+					rs = pst.executeQuery();
+					if (!rs.next()) {
+						JOptionPane.showMessageDialog(null, "Username and Password is Incorrect");
+					} else {
+						JOptionPane.showMessageDialog(null, "Login Successful");
+						String fullName = rs.getString("first_name") + " " + rs.getString("last_name");
+						Portal second = new Portal(conn, fullName);
+						second.setVisible(true);
+						dispose();
+					}
 
-				if (user.equals("05-00-3172") && password.equals("password")) {
-					JOptionPane.showMessageDialog(null, "Login Successful!");
-
-					Portal second = new Portal();
-					second.setVisible(true);
-					dispose();
-				} else {
-					JOptionPane.showMessageDialog(null, "Login Error!");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, e2);
 				}
 			}
 		});
-//*************************************************************************************//		
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.setBounds(80, 151, 103, 23);
 		panel.add(btnNewButton);
-//*****************||CREATE-ACCOUNT||**********************//	
+
 		JButton btnNewButton_1 = new JButton("Sign Up");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -171,10 +175,10 @@ public class Login extends JFrame {
 		navypanel2_1_1.setBackground(new Color(0, 27, 70));
 		navypanel2_1_1.setBounds(837, 0, 17, 480);
 		contentPane.add(navypanel2_1_1);
-//*******************************||SET-ROUND-RECTANGLE-TO-PANEL||**********************************************//
+
 		setUndecorated(true);
 		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));
-//********************************||FUNCTION-TO-ADD-MOUSE-DRAGGING-ON-THE-PANE||********************************//
+
 		contentPane.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				mouseX = e.getX();
