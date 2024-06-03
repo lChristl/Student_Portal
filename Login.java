@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -10,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -57,17 +60,10 @@ public class Login extends JFrame {
 		JPanel navypanel2 = new JPanel();
 		navypanel2.setLayout(null);
 		navypanel2.setBackground(new Color(0, 27, 70));
-		navypanel2.setBounds(0, 410, 854, 70);
+		navypanel2.setBounds(0, 456, 854, 24);
 		contentPane.add(navypanel2);
-
-		JLabel lblNewLabel_1 = new JLabel("OF  SCIENCE  AND  TECHNOLOGY");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(232, 46, 389, 24);
-		contentPane.add(lblNewLabel_1);
 		navypanel1.setBackground(new Color(0, 27, 70));
-		navypanel1.setBounds(0, 0, 854, 70);
+		navypanel1.setBounds(0, 0, 854, 103);
 		contentPane.add(navypanel1);
 		navypanel1.setLayout(null);
 
@@ -78,6 +74,11 @@ public class Login extends JFrame {
 				dispose();
 			}
 		});
+
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-portal\\src\\images\\ccst-icon.png"));
+		lblNewLabel_5.setBounds(171, 11, 94, 82);
+		navypanel1.add(lblNewLabel_5);
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(255, 81, 81));
 		btnNewButton_2.setBounds(742, 11, 73, 23);
@@ -87,12 +88,19 @@ public class Login extends JFrame {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(225, 5, 403, 42);
+		lblNewLabel.setBounds(225, 11, 403, 42);
 		navypanel1.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("OF  SCIENCE  AND  TECHNOLOGY");
+		lblNewLabel_1.setBounds(232, 53, 389, 24);
+		navypanel1.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 27, 70, 220));
-		panel.setBounds(196, 114, 446, 213);
+		panel.setBounds(204, 133, 446, 213);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -167,14 +175,19 @@ public class Login extends JFrame {
 		JPanel navypanel2_1 = new JPanel();
 		navypanel2_1.setLayout(null);
 		navypanel2_1.setBackground(new Color(0, 27, 70));
-		navypanel2_1.setBounds(0, 0, 17, 480);
+		navypanel2_1.setBounds(0, 0, 7, 480);
 		contentPane.add(navypanel2_1);
 
 		JPanel navypanel2_1_1 = new JPanel();
 		navypanel2_1_1.setLayout(null);
 		navypanel2_1_1.setBackground(new Color(0, 27, 70));
-		navypanel2_1_1.setBounds(837, 0, 17, 480);
+		navypanel2_1_1.setBounds(847, 0, 7, 480);
 		contentPane.add(navypanel2_1_1);
+
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-portal\\src\\images\\ccstbackg.jpg"));
+		lblNewLabel_4.setBounds(0, 0, 854, 480);
+		contentPane.add(lblNewLabel_4);
 
 		setUndecorated(true);
 		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));

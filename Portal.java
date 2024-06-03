@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -16,8 +18,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class Portal extends JFrame {
 
@@ -42,13 +47,12 @@ public class Portal extends JFrame {
 	private JLabel lblSection;
 	private JLabel lblSchoolYear;
 	private JLabel lblContactNo;
-	private JPanel panel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_2_1;
-	private JLabel lblNewLabel_2_2;
-	private JLabel lblNewLabel_2_3;
-	private JLabel lblNewLabel_2_4;
+	private JLabel lblname;
+	private JLabel lblstudent;
+	private JLabel lblstrand;
+	private JLabel lblsection;
+	private JLabel lblsy;
+	private JLabel lbcontact;
 	private JLayeredPane layeredPane;
 	private JPanel m1;
 	private JPanel panelm1;
@@ -84,6 +88,8 @@ public class Portal extends JFrame {
 	}
 
 	Color defaultcolor, clickedcolor, black, white;
+	private JTable table;
+	private JTable table_1;
 
 	public void switchPanel(JPanel panel) {
 		layeredPane.removeAll();
@@ -114,6 +120,7 @@ public class Portal extends JFrame {
 		contentPane.add(navypanel1_1);
 
 		dashboardpanel = new JPanel();
+		dashboardpanel.setBackground(new Color(255, 255, 255));
 		dashboardpanel.setLayout(null);
 		dashboardpanel.setBounds(33, 399, 234, 52);
 		navypanel1_1.add(dashboardpanel);
@@ -144,6 +151,7 @@ public class Portal extends JFrame {
 		dashboardpanel.add(c1);
 
 		eventcalendarpanel = new JPanel();
+		eventcalendarpanel.setBackground(new Color(255, 255, 255));
 		eventcalendarpanel.setLayout(null);
 		eventcalendarpanel.setBounds(33, 579, 234, 52);
 		navypanel1_1.add(eventcalendarpanel);
@@ -173,6 +181,7 @@ public class Portal extends JFrame {
 		eventcalendarpanel.add(c2);
 
 		curriculumpanel = new JPanel();
+		curriculumpanel.setBackground(new Color(255, 255, 255));
 		curriculumpanel.setLayout(null);
 		curriculumpanel.setBounds(33, 488, 234, 52);
 		navypanel1_1.add(curriculumpanel);
@@ -255,45 +264,55 @@ public class Portal extends JFrame {
 		lblContactNo.setBounds(21, 489, 150, 31);
 		navypanel2.add(lblContactNo);
 
-		panel = new JPanel();
-		panel.setBounds(75, 68, 150, 150);
-		navypanel2.add(panel);
+		lblname = new JLabel("New label");
+		lblname.setForeground(Color.WHITE);
+		lblname.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblname.setBounds(75, 239, 150, 14);
+		navypanel2.add(lblname);
 
-		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(75, 239, 150, 14);
-		navypanel2.add(lblNewLabel_1);
+		lblstudent = new JLabel("New label");
+		lblstudent.setForeground(Color.WHITE);
+		lblstudent.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblstudent.setBounds(167, 277, 150, 14);
+		navypanel2.add(lblstudent);
 
-		lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(167, 277, 150, 14);
-		navypanel2.add(lblNewLabel_2);
+		lblstrand = new JLabel("New label");
+		lblstrand.setForeground(Color.WHITE);
+		lblstrand.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblstrand.setBounds(89, 344, 150, 14);
+		navypanel2.add(lblstrand);
 
-		lblNewLabel_2_1 = new JLabel("New label");
-		lblNewLabel_2_1.setForeground(Color.WHITE);
-		lblNewLabel_2_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNewLabel_2_1.setBounds(89, 344, 150, 14);
-		navypanel2.add(lblNewLabel_2_1);
+		lblsection = new JLabel("New label");
+		lblsection.setForeground(Color.WHITE);
+		lblsection.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblsection.setBounds(99, 386, 150, 14);
+		navypanel2.add(lblsection);
 
-		lblNewLabel_2_2 = new JLabel("New label");
-		lblNewLabel_2_2.setForeground(Color.WHITE);
-		lblNewLabel_2_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNewLabel_2_2.setBounds(99, 386, 150, 14);
-		navypanel2.add(lblNewLabel_2_2);
+		lblsy = new JLabel("New label");
+		lblsy.setForeground(Color.WHITE);
+		lblsy.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblsy.setBounds(140, 428, 150, 14);
+		navypanel2.add(lblsy);
 
-		lblNewLabel_2_3 = new JLabel("New label");
-		lblNewLabel_2_3.setForeground(Color.WHITE);
-		lblNewLabel_2_3.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNewLabel_2_3.setBounds(140, 428, 150, 14);
-		navypanel2.add(lblNewLabel_2_3);
+		lbcontact = new JLabel("New label");
+		lbcontact.setForeground(Color.WHITE);
+		lbcontact.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lbcontact.setBounds(177, 498, 113, 14);
+		navypanel2.add(lbcontact);
 
-		lblNewLabel_2_4 = new JLabel("New label");
-		lblNewLabel_2_4.setForeground(Color.WHITE);
-		lblNewLabel_2_4.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNewLabel_2_4.setBounds(177, 498, 113, 14);
-		navypanel2.add(lblNewLabel_2_4);
+		JButton btnNewButton = new JButton("Log Out");
+		btnNewButton.setBackground(new Color(0, 70, 180));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Login second = new Login();
+				second.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(21, 686, 89, 23);
+		navypanel2.add(btnNewButton);
 
 		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(299, 0, 683, 720);
@@ -395,6 +414,9 @@ public class Portal extends JFrame {
 		panel_2_1.setBackground(Color.WHITE);
 		panel_2_1.setBounds(10, 11, 643, 552);
 		panelm32.add(panel_2_1);
+		
+		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("New JGoodies title");
+		panel_2_1.add(lblNewJgoodiesTitle);
 
 		m2 = new JPanel();
 		m2.setLayout(null);
@@ -421,10 +443,53 @@ public class Portal extends JFrame {
 		m2.add(panelm22);
 
 		panel_2_2 = new JPanel();
-		panel_2_2.setLayout(null);
 		panel_2_2.setBackground(Color.WHITE);
 		panel_2_2.setBounds(10, 11, 643, 552);
 		panelm22.add(panel_2_2);
+		panel_2_2.setLayout(null);
+
+		String[] firstsemcolumn = { "CATEGORY", "SUBJECT" };
+		Object[][] firstsemdata = { { "CORE", "DISASTER READINESS AND RISK REDUCTION" },
+				{ "CORE", "UNDERSTANDING CULTURE, SOCIETY AND POLITICS" },
+				{ "CORE", "INTRODUCTION TO THE PHILOSOPHY OF THE HUMAN PERSON" },
+				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" },
+				{ "CORE", "KOMUNIKASYON AT PANANALIKSIK SA WIKA AT KULTURANG PILIPINO" },
+				{ "APPLIED", "FILIPINO SA PILING LARANGAN" }, { "APPLIED", "PRACTICAL RESEARCH 2" },
+				{ "SPECIALIZED", "COMPUTER PROGRAMMING 1" }
+				// Add more data as needed
+		};
+
+		table = new JTable(firstsemdata, firstsemcolumn);
+		table.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(0, 62, 643, 159);
+		panel_2_2.add(scrollPane);
+
+		String[] secondsemcolumn = { "CATEGORY", "SUBJECT" };
+		Object[][] secondsemdata = { { "CORE", "CONTEMPORARY PHILIPPINE ARTS FROM THE REGIONS" },
+				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" },
+				{ "APPLIED", "ENGLISH FOR ACADEMIC AND PROFESSIONAL PURPOSES" }, { "APPLIED", "ENTREPRENEURSHIP" },
+				{ "APPLIED", "INQUIRIES, INVESTIGATIONS AND IMMERSION" }, { "SPECIALIZED", "COMPUTER PROGRAMMING 2" }
+				// Add more data as needed
+		};
+
+		table_1 = new JTable(secondsemdata, secondsemcolumn);
+		table_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane scrollPane1 = new JScrollPane(table_1);
+		scrollPane1.setBounds(0, 260, 643, 124);
+		panel_2_2.add(scrollPane1);
+
+		JLabel headerLabel1 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel1.setForeground(new Color(0, 27, 70));
+		headerLabel1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel1.setBounds(7, 31, 629, 20);
+		panel_2_2.add(headerLabel1);
+
+		JLabel headerLabel2 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel2.setForeground(new Color(0, 27, 70));
+		headerLabel2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel2.setBounds(0, 229, 629, 20);
+		panel_2_2.add(headerLabel2);
 
 		setUndecorated(true);
 		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));
