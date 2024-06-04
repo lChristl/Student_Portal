@@ -138,13 +138,21 @@ public class Login extends JFrame {
 					pst = conn.prepareStatement(sqlquery);
 					pst.setString(1, username);
 					pst.setString(2, userpassword);
+
 					rs = pst.executeQuery();
 					if (!rs.next()) {
 						JOptionPane.showMessageDialog(null, "Username and Password is Incorrect");
 					} else {
 						JOptionPane.showMessageDialog(null, "Login Successful");
-						String fullName = rs.getString("first_name") + " " + rs.getString("last_name");
-						Portal second = new Portal(conn, fullName);
+						String fullName = rs.getString("student_name");
+						String studentname = rs.getString("student_name");
+						String studentnumber = rs.getString("student_number");
+						String strand = rs.getString("strand");
+						String section = rs.getString("section");
+						String sy = rs.getString("school_year");
+						String contactnumber = rs.getString("contact_number");
+						Portal second = new Portal(conn, fullName, studentname, studentnumber, strand, section, sy,
+								contactnumber);
 						second.setVisible(true);
 						dispose();
 					}

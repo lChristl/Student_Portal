@@ -22,7 +22,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class Portal extends JFrame {
 
@@ -52,7 +51,7 @@ public class Portal extends JFrame {
 	private JLabel lblstrand;
 	private JLabel lblsection;
 	private JLabel lblsy;
-	private JLabel lbcontact;
+	private JLabel lblcontact;
 	private JLayeredPane layeredPane;
 	private JPanel m1;
 	private JPanel panelm1;
@@ -78,7 +77,8 @@ public class Portal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Portal frame = new Portal(null, "John Doe");
+					Portal frame = new Portal(null, "John Doe", "studentname", "studentnumber", "strand", "section",
+							"sy", "contactno.");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -98,7 +98,8 @@ public class Portal extends JFrame {
 		layeredPane.revalidate();
 	}
 
-	public Portal(Connection conn, String fullName) {
+	public Portal(Connection conn, String fullName, String studentname, String studentnumber, String strand,
+			String section, String sy, String contactnumber) {
 		this.conn = conn;
 
 		defaultcolor = new Color(255, 255, 255);
@@ -211,96 +212,97 @@ public class Portal extends JFrame {
 		curriculumpanel.add(c3);
 
 		navypanel2 = new JPanel();
-		navypanel2.setLayout(null);
 		navypanel2.setBackground(new Color(0, 27, 70));
 		navypanel2.setBounds(980, 0, 300, 720);
 		contentPane.add(navypanel2);
 
 		exitbutton = new JButton("Exit\r\n");
+		exitbutton.setBounds(190, 11, 73, 23);
 		exitbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
+		navypanel2.setLayout(null);
 		exitbutton.setForeground(Color.WHITE);
 		exitbutton.setBorder(null);
 		exitbutton.setBackground(new Color(255, 81, 81));
-		exitbutton.setBounds(190, 11, 73, 23);
 		navypanel2.add(exitbutton);
 
 		lblNewLabel = new JLabel("NAME:");
+		lblNewLabel.setBounds(6, 40, 49, 31);
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblNewLabel.setBounds(21, 229, 49, 31);
 		navypanel2.add(lblNewLabel);
 
 		lblStudentNo = new JLabel("STUDENT NUMBER:");
+		lblStudentNo.setBounds(6, 78, 150, 31);
 		lblStudentNo.setForeground(Color.WHITE);
 		lblStudentNo.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblStudentNo.setBounds(21, 267, 150, 31);
 		navypanel2.add(lblStudentNo);
 
 		lblStrand = new JLabel("STRAND:");
+		lblStrand.setBounds(6, 146, 73, 31);
 		lblStrand.setForeground(Color.WHITE);
 		lblStrand.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblStrand.setBounds(21, 335, 73, 31);
 		navypanel2.add(lblStrand);
 
 		lblSection = new JLabel("SECTION:");
+		lblSection.setBounds(6, 188, 73, 31);
 		lblSection.setForeground(Color.WHITE);
 		lblSection.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblSection.setBounds(21, 377, 73, 31);
 		navypanel2.add(lblSection);
 
 		lblSchoolYear = new JLabel("SCHOOL YEAR:");
+		lblSchoolYear.setBounds(6, 230, 150, 31);
 		lblSchoolYear.setForeground(Color.WHITE);
 		lblSchoolYear.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblSchoolYear.setBounds(21, 419, 150, 31);
 		navypanel2.add(lblSchoolYear);
 
 		lblContactNo = new JLabel("CONTACT NUMBER:");
+		lblContactNo.setBounds(6, 300, 150, 31);
 		lblContactNo.setForeground(Color.WHITE);
 		lblContactNo.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblContactNo.setBounds(21, 489, 150, 31);
 		navypanel2.add(lblContactNo);
 
 		lblname = new JLabel("New label");
+		lblname.setBounds(57, 47, 150, 14);
 		lblname.setForeground(Color.WHITE);
 		lblname.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblname.setBounds(75, 239, 150, 14);
 		navypanel2.add(lblname);
 
 		lblstudent = new JLabel("New label");
+		lblstudent.setBounds(149, 85, 150, 14);
 		lblstudent.setForeground(Color.WHITE);
 		lblstudent.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblstudent.setBounds(167, 277, 150, 14);
 		navypanel2.add(lblstudent);
 
 		lblstrand = new JLabel("New label");
+		lblstrand.setBounds(74, 155, 201, 14);
 		lblstrand.setForeground(Color.WHITE);
 		lblstrand.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblstrand.setBounds(89, 344, 150, 14);
 		navypanel2.add(lblstrand);
 
 		lblsection = new JLabel("New label");
+		lblsection.setBounds(84, 197, 150, 14);
 		lblsection.setForeground(Color.WHITE);
 		lblsection.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblsection.setBounds(99, 386, 150, 14);
 		navypanel2.add(lblsection);
 
 		lblsy = new JLabel("New label");
+		lblsy.setBounds(125, 239, 150, 14);
 		lblsy.setForeground(Color.WHITE);
 		lblsy.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblsy.setBounds(140, 428, 150, 14);
 		navypanel2.add(lblsy);
 
-		lbcontact = new JLabel("New label");
-		lbcontact.setForeground(Color.WHITE);
-		lbcontact.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lbcontact.setBounds(177, 498, 113, 14);
-		navypanel2.add(lbcontact);
+		lblcontact = new JLabel("New label");
+		lblcontact.setBounds(162, 309, 113, 14);
+		lblcontact.setForeground(Color.WHITE);
+		lblcontact.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		navypanel2.add(lblcontact);
 
 		JButton btnNewButton = new JButton("Log Out");
+		btnNewButton.setBounds(21, 686, 89, 23);
 		btnNewButton.setBackground(new Color(0, 70, 180));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
@@ -311,7 +313,6 @@ public class Portal extends JFrame {
 				second.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(21, 686, 89, 23);
 		navypanel2.add(btnNewButton);
 
 		layeredPane = new JLayeredPane();
@@ -373,7 +374,7 @@ public class Portal extends JFrame {
 		panel_3.add(panel_6);
 
 		lblName = new JLabel(""); // Initialize lblName
-		lblName.setBounds(120, 52, 403, 24);
+		lblName.setBounds(65, 52, 513, 24);
 		panel_3.add(lblName);
 		lblName.setForeground(new Color(0, 0, 0));
 		lblName.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
@@ -414,9 +415,6 @@ public class Portal extends JFrame {
 		panel_2_1.setBackground(Color.WHITE);
 		panel_2_1.setBounds(10, 11, 643, 552);
 		panelm32.add(panel_2_1);
-		
-		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("New JGoodies title");
-		panel_2_1.add(lblNewJgoodiesTitle);
 
 		m2 = new JPanel();
 		m2.setLayout(null);
@@ -510,13 +508,53 @@ public class Portal extends JFrame {
 		});
 
 		setWelcomeText(fullName);
+		setinfo(studentname, studentnumber, strand, section, sy, contactnumber);
+//		setPersonalInfo(studentname, studentnumber, strand, section, sy, contactnumber);
 	}
 
-	private void setWelcomeText(String fullName) {
-		String[] nameParts = fullName.split(" ");
-		String firstName = nameParts[0];
-		String lastName = nameParts.length > 1 ? nameParts[1] : "";
+	private void setinfo(String studentname, String studentNumber, String strand, String section, String sy,
+			String contactnumber) {
+		lblname.setText(studentname);
+		lblstudent.setText(studentNumber);
+		lblstrand.setText(strand);
+		lblsection.setText(section);
+		lblsy.setText(sy);
+		lblcontact.setText(contactnumber);
+	}
+//	private void setPersonalInfo(String studentNumber, String strand, String section, String sy, String contactnumber) {
+//		try {
+//			String query = "SELECT student_name FROM Userlogin WHERE student_number = ? AND strand = ? AND section = ? AND school_year = ? AND contact_number = ?";
+//			pst = conn.prepareStatement(query);
+//			pst.setString(1, studentNumber);
+//			pst.setString(2, strand);
+//			pst.setString(3, section);
+//			pst.setString(4, sy);
+//			pst.setString(5, contactnumber);
+//			rs = pst.executeQuery();
+//
+//			if (rs.next()) {
+//				String studentName = rs.getString("student_name");
+//				lblname.setText(studentName); // Assuming lblname is your JLabel for displaying student name
+//			} else {
+//				// Handle case where no student with given criteria is found
+//				lblname.setText("Student not found");
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			// Handle any SQL exceptions
+//		} finally {
+//			try {
+//				if (rs != null)
+//					rs.close();
+//				if (pst != null)
+//					pst.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
-		lblName.setText(firstName + " " + lastName); // Update text of lblName
+	private void setWelcomeText(String fullName) {
+		lblName.setText(fullName); // Update text of lblName
 	}
 }
