@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -61,6 +62,7 @@ public class Signup extends JFrame {
 	 * Create the frame.
 	 */
 	public Signup() {
+
 		setResizable(false);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,25 +74,25 @@ public class Signup extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Last_Name");
+		JLabel lblNewLabel = new JLabel("Last Name");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(63, 127, 185, 14);
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("First_Name");
+		JLabel lblNewLabel_1 = new JLabel("First Name");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(63, 190, 185, 14);
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Middle_Name");
+		JLabel lblNewLabel_2 = new JLabel("Middle Name");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setBounds(63, 253, 185, 14);
 		lblNewLabel_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Student_Number");
+		JLabel lblNewLabel_3 = new JLabel("Student Number");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setBounds(63, 316, 185, 14);
 		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
@@ -102,7 +104,7 @@ public class Signup extends JFrame {
 		lblNewLabel_4.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_4);
 
-		JLabel lblNewLabel_5 = new JLabel("Date_Of_Birth");
+		JLabel lblNewLabel_5 = new JLabel("Date Of Birth");
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
 		lblNewLabel_5.setBounds(63, 442, 185, 14);
 		lblNewLabel_5.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
@@ -120,13 +122,13 @@ public class Signup extends JFrame {
 		lblNewLabel_7.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_7);
 
-		JLabel lblNewLabel_8 = new JLabel("Contact_Number");
+		JLabel lblNewLabel_8 = new JLabel("Contact Number");
 		lblNewLabel_8.setForeground(new Color(255, 255, 255));
 		lblNewLabel_8.setBounds(535, 127, 185, 14);
 		lblNewLabel_8.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_8);
 
-		JLabel lblNewLabel_9 = new JLabel("Email_Address");
+		JLabel lblNewLabel_9 = new JLabel("Email Address");
 		lblNewLabel_9.setForeground(new Color(255, 255, 255));
 		lblNewLabel_9.setBounds(535, 190, 185, 14);
 		lblNewLabel_9.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
@@ -150,13 +152,13 @@ public class Signup extends JFrame {
 		lblNewLabel_12.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_12);
 
-		JLabel lblNewLabel_13 = new JLabel("Contact_Number");
+		JLabel lblNewLabel_13 = new JLabel("Contact Number");
 		lblNewLabel_13.setForeground(new Color(255, 255, 255));
 		lblNewLabel_13.setBounds(535, 442, 185, 14);
 		lblNewLabel_13.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
 		contentPane.add(lblNewLabel_13);
 
-		JLabel lblNewLabel_14 = new JLabel("Previous_School_Attended");
+		JLabel lblNewLabel_14 = new JLabel("Previous School Attended");
 		lblNewLabel_14.setForeground(new Color(255, 255, 255));
 		lblNewLabel_14.setBounds(535, 505, 185, 14);
 		lblNewLabel_14.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
@@ -252,7 +254,7 @@ public class Signup extends JFrame {
 		textField_14.setColumns(10);
 		contentPane.add(textField_14);
 
-		JLabel lblNewLabel_15 = new JLabel("School_Address");
+		JLabel lblNewLabel_15 = new JLabel("School Address");
 		lblNewLabel_15.setForeground(new Color(255, 255, 255));
 		lblNewLabel_15.setBounds(535, 568, 185, 14);
 		lblNewLabel_15.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
@@ -274,21 +276,26 @@ public class Signup extends JFrame {
 		JPanel navypanel1 = new JPanel();
 		navypanel1.setLayout(null);
 		navypanel1.setBackground(new Color(0, 27, 70));
-		navypanel1.setBounds(0, 0, 1088, 70);
+		navypanel1.setBounds(0, 0, 1088, 88);
 		contentPane.add(navypanel1);
+
+		ImageIcon ccsticon = new ImageIcon(getClass().getResource("/images/ccst-icon.png"));
+		JLabel icon = new JLabel(ccsticon);
+		icon.setBounds(280, 0, 92, 88);
+		navypanel1.add(icon);
 
 		JLabel lblNewLabel_16 = new JLabel("CLARK COLLEGE\r\n");
 		lblNewLabel_16.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_16.setForeground(Color.WHITE);
 		lblNewLabel_16.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		lblNewLabel_16.setBounds(342, 0, 403, 42);
+		lblNewLabel_16.setBounds(342, 7, 403, 42);
 		navypanel1.add(lblNewLabel_16);
 
 		JLabel lblNewLabel_1_1 = new JLabel("OF  SCIENCE  AND  TECHNOLOGY");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		lblNewLabel_1_1.setBounds(349, 41, 389, 24);
+		lblNewLabel_1_1.setBounds(349, 56, 389, 24);
 		navypanel1.add(lblNewLabel_1_1);
 
 		btnNewButton_1 = new JButton("Exit\r\n");

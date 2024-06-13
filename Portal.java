@@ -26,12 +26,17 @@ import javax.swing.border.EmptyBorder;
 
 public class Portal extends JFrame {
 
+	/**
+	 * C
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 	private int mouseX, mouseY;
 	Connection conn;
 	PreparedStatement pst;
 	ResultSet rs;
-	private JLabel lblName; // Declare lblName as a class member variable
+	private JLabel lblName;
 	private JPanel navypanel1_1;
 	private JPanel dashboardpanel;
 	private JLabel c1;
@@ -225,10 +230,10 @@ public class Portal extends JFrame {
 		c2.setBounds(0, 0, 234, 52);
 		curriculumpanel.add(c2);
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-portal\\src\\images\\largeiconccst.png"));
-		lblNewLabel_1.setBounds(51, 25, 198, 200);
-		navypanel1_1.add(lblNewLabel_1);
+		ImageIcon icon = new ImageIcon(getClass().getResource("/images/largeiconccst.png"));
+		JLabel ccsticon = new JLabel(icon);
+		ccsticon.setBounds(51, 25, 198, 200);
+		navypanel1_1.add(ccsticon);
 
 		lblNewLabel_2 = new JLabel("OF  SCIENCE  AND  TECHNOLOGY");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -383,7 +388,7 @@ public class Portal extends JFrame {
 		panel_3.setBounds(10, 11, 643, 552);
 		panelm12.add(panel_3);
 
-		lblName = new JLabel(fullName); // Initialize lblName
+		lblName = new JLabel(fullName);
 		lblName.setBounds(65, 52, 513, 24);
 		panel_3.add(lblName);
 		lblName.setForeground(new Color(0, 0, 0));
@@ -463,13 +468,13 @@ public class Portal extends JFrame {
 		JLabel headerLabel1 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel1.setForeground(new Color(0, 27, 70));
 		headerLabel1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel1.setBounds(7, 31, 629, 20);
+		headerLabel1.setBounds(7, 30, 629, 30);
 		panel_ict.add(headerLabel1);
 
 		JLabel headerLabel2 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel2.setForeground(new Color(0, 27, 70));
 		headerLabel2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel2.setBounds(0, 229, 629, 20);
+		headerLabel2.setBounds(7, 230, 629, 30);
 		panel_ict.add(headerLabel2);
 
 		m_humms = new JPanel();
@@ -500,8 +505,12 @@ public class Portal extends JFrame {
 		// ------------------||HUMMS||-----------------//
 
 		String[] firstsemcolumn_humms = { "CATEGORY", "SUBJECT" };
-		Object[][] firstsemdata_humms = { { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" },
-				{ "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" }, { "SPECIALIZED", "-" }
+		Object[][] firstsemdata_humms = { { "CORE", "PHYSICAL SCIENCE" },
+				{ "CORE", "INTRODUCTION TO THE PHILOSOPHY OF THE HUMAN PERSON" },
+				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" }, { "APPLIED", "FILIPINO SA PILING LARANGAN" },
+				{ "APPLIED", "RESEARCH IN DAILY LIFE 2" }, { "SPECIALIZED", "PHILIPPINE POLITICS AND GOVERNANCE" },
+				{ "SPECIALIZED", "CREATIVE WRITING" },
+				{ "SPECIALIZED", "DISCIPLINE AND IDEAS IN APPLIED SOCIAL SCIENCES" }
 
 		};
 
@@ -530,13 +539,13 @@ public class Portal extends JFrame {
 		headerLabel1_1 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel1_1.setForeground(new Color(0, 27, 70));
 		headerLabel1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel1_1.setBounds(7, 31, 629, 20);
+		headerLabel1_1.setBounds(7, 31, 629, 30);
 		panel_humms.add(headerLabel1_1);
 
 		headerLabel2_1 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel2_1.setForeground(new Color(0, 27, 70));
 		headerLabel2_1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel2_1.setBounds(0, 229, 629, 20);
+		headerLabel2_1.setBounds(7, 230, 629, 30);
 		panel_humms.add(headerLabel2_1);
 
 		m_abm = new JPanel();
@@ -572,8 +581,12 @@ public class Portal extends JFrame {
 		// ------------------||ABM||-----------------//
 
 		String[] firstsemcolumn_abm = { "CATEGORY", "SUBJECT" };
-		Object[][] firstsemdata_abm = { { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" },
-				{ "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" }, { "SPECIALIZED", "-" }
+		Object[][] firstsemdata_abm = { { "CORE", "UNDERSTANDING CULTURE, SOCIETY AND POLITICS" },
+				{ "CORE", "INTRODUCTION TO THE PHILOSOPHY OF THE HUMAN PERSON" },
+				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" }, { "CORE", "MEDIA AND INFORMATION LITERACY" },
+				{ "APPLIED", "RESEARCH IN DAILY LIFE 1" }, { "APPLIED", "FILIPINO SA PILING LARANGAN" },
+				{ "SPECIALIZED", "BUSINESS FINANCE" },
+				{ "SPECIALIZED", "FUNDAMENTALS OF ACCOUNTANCY, BUSINESS AND MANAGEMENT 2" }
 
 		};
 
@@ -597,13 +610,13 @@ public class Portal extends JFrame {
 		headerLabel1_2 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel1_2.setForeground(new Color(0, 27, 70));
 		headerLabel1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel1_2.setBounds(7, 31, 629, 20);
+		headerLabel1_2.setBounds(7, 31, 629, 30);
 		panel_abm.add(headerLabel1_2);
 
 		headerLabel2_2 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel2_2.setForeground(new Color(0, 27, 70));
 		headerLabel2_2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel2_2.setBounds(0, 229, 629, 20);
+		headerLabel2_2.setBounds(7, 230, 629, 30);
 		panel_abm.add(headerLabel2_2);
 
 		m_stem = new JPanel();
@@ -668,13 +681,13 @@ public class Portal extends JFrame {
 		headerLabel1_3 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel1_3.setForeground(new Color(0, 27, 70));
 		headerLabel1_3.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel1_3.setBounds(7, 31, 629, 20);
+		headerLabel1_3.setBounds(7, 30, 629, 30);
 		panel_stem.add(headerLabel1_3);
 
 		headerLabel2_3 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel2_3.setForeground(new Color(0, 27, 70));
 		headerLabel2_3.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel2_3.setBounds(0, 262, 629, 20);
+		headerLabel2_3.setBounds(7, 252, 629, 30);
 		panel_stem.add(headerLabel2_3);
 
 		m_gas = new JPanel();
@@ -688,7 +701,7 @@ public class Portal extends JFrame {
 		panelm61.setBounds(10, 15, 663, 101);
 		m_gas.add(panelm61);
 
-		c1_1_1 = new JLabel("CURRICULUM IN STEM");
+		c1_1_1 = new JLabel("CURRICULUM IN GAS");
 		c1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		c1_1_1.setForeground(Color.WHITE);
 		c1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
@@ -710,14 +723,18 @@ public class Portal extends JFrame {
 		// ------------------||GAS||-----------------//
 
 		String[] firstsemcolumn_gas = { "CATEGORY", "SUBJECT" };
-		Object[][] firstsemdata_gas = { { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" },
-				{ "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" }, { "SPECIALIZED", "-" }
+		Object[][] firstsemdata_gas = { { "CORE", "INTRODUCTION TO THE PHILOSOPHY OF THE HUMAN PERSON" },
+				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" }, { "CORE", "RESEARCH IN DAILY LIFE 2" },
+				{ "CORE", "ENGLISH FOR ACADEMIC AND PROFESSIONAL PURPOSES" },
+				{ "APPLIED", "FILIPINO SA PILING LARANGAN" }, { "APPLIED", "CREATIVE WRITING" },
+				{ "SPECIALIZED", "DISCIPLINE AND IDEAS IN THE SOCIAL SCIENCES" },
+				{ "SPECIALIZED", "ORGANIZATION AND MANAGEMENT" }
 
 		};
 		f_table_gas = new JTable(firstsemdata_gas, firstsemcolumn_gas);
 		f_table_gas.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
 		JScrollPane f_sem_gas = new JScrollPane(f_table_gas);
-		f_sem_gas.setBounds(0, 62, 643, 180);
+		f_sem_gas.setBounds(0, 62, 643, 158);
 		panel_gas.add(f_sem_gas);
 
 		String[] secondsemcolumn_gas = { "CATEGORY", "SUBJECT" };
@@ -729,19 +746,19 @@ public class Portal extends JFrame {
 		s_table_gas = new JTable(secondsemdata_gas, secondsemcolumn_gas);
 		s_table_gas.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
 		JScrollPane s_sem_gas = new JScrollPane(s_table_gas);
-		s_sem_gas.setBounds(0, 293, 643, 124);
+		s_sem_gas.setBounds(0, 271, 643, 124);
 		panel_gas.add(s_sem_gas);
 
 		headerLabel2_4 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel2_4.setForeground(new Color(0, 27, 70));
 		headerLabel2_4.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel2_4.setBounds(0, 262, 629, 20);
+		headerLabel2_4.setBounds(7, 230, 629, 30);
 		panel_gas.add(headerLabel2_4);
 
 		headerLabel1_4 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel1_4.setForeground(new Color(0, 27, 70));
 		headerLabel1_4.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		headerLabel1_4.setBounds(7, 31, 629, 20);
+		headerLabel1_4.setBounds(7, 21, 629, 30);
 		panel_gas.add(headerLabel1_4);
 
 		setUndecorated(true);
