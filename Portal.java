@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,10 +35,8 @@ public class Portal extends JFrame {
 	private JPanel navypanel1_1;
 	private JPanel dashboardpanel;
 	private JLabel c1;
-	private JPanel eventcalendarpanel;
-	private JLabel c2;
 	private JPanel curriculumpanel;
-	private JLabel c3;
+	private JLabel c2;
 	private JPanel navypanel2;
 	private JButton exitbutton;
 	private JLabel lblNewLabel;
@@ -58,20 +57,11 @@ public class Portal extends JFrame {
 	private JLabel c1_1;
 	private JPanel panelm12;
 	private JPanel panel_3;
-	private JPanel panel_4;
-	private JLabel c1_1_1;
-	private JPanel panel_5;
-	private JPanel panel_6;
-	private JPanel m3;
-	private JPanel panelm31;
-	private JLabel c1_1_2;
-	private JPanel panelm32;
-	private JPanel panel_2_1;
-	private JPanel m2;
+	private JPanel m_ict;
 	private JPanel panelm21;
 	private JLabel c1_1_3;
 	private JPanel panelm22;
-	private JPanel panel_2_2;
+	private JPanel panel_ict;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -88,8 +78,48 @@ public class Portal extends JFrame {
 	}
 
 	Color defaultcolor, clickedcolor, black, white;
-	private JTable table;
-	private JTable table_1;
+
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JPanel m_humms;
+	private JPanel panelm31;
+	private JLabel c1_1_2;
+	private JPanel panelm32;
+	private JPanel panel_humms;
+	private JLabel headerLabel1_1;
+	private JLabel headerLabel2_1;
+	private JPanel m_abm;
+	private JPanel panelm41;
+	private JLabel c1_1_4;
+	private JPanel panelm42;
+	private JPanel panel_abm;
+	private JLabel headerLabel1_2;
+	private JLabel headerLabel2_2;
+	private JPanel m_stem;
+	private JPanel panelm51;
+	private JLabel c1_1_5;
+	private JPanel panelm52;
+	private JPanel panel_stem;
+	private JLabel headerLabel1_3;
+	private JLabel headerLabel2_3;
+
+	private JTable f_table_ict;
+	private JTable s_table_ict;
+	private JTable f_table_humms;
+	private JTable s_table_humms;
+	private JTable f_table_abm;
+	private JTable s_table_abm;
+	private JTable f_table_stem;
+	private JTable s_table_stem;
+	private JPanel m_gas;
+	private JPanel panelm61;
+	private JLabel c1_1_1;
+	private JPanel panelm62;
+	private JPanel panel_gas;
+	private JLabel headerLabel1_4;
+	private JLabel headerLabel2_4;
+	private JTable f_table_gas;
+	private JTable s_table_gas;
 
 	public void switchPanel(JPanel panel) {
 		layeredPane.removeAll();
@@ -123,7 +153,7 @@ public class Portal extends JFrame {
 		dashboardpanel = new JPanel();
 		dashboardpanel.setBackground(new Color(255, 255, 255));
 		dashboardpanel.setLayout(null);
-		dashboardpanel.setBounds(33, 399, 234, 52);
+		dashboardpanel.setBounds(33, 549, 234, 52);
 		navypanel1_1.add(dashboardpanel);
 
 		c1 = new JLabel("DASHBOARD");
@@ -151,65 +181,68 @@ public class Portal extends JFrame {
 		c1.setBounds(0, 0, 234, 52);
 		dashboardpanel.add(c1);
 
-		eventcalendarpanel = new JPanel();
-		eventcalendarpanel.setBackground(new Color(255, 255, 255));
-		eventcalendarpanel.setLayout(null);
-		eventcalendarpanel.setBounds(33, 579, 234, 52);
-		navypanel1_1.add(eventcalendarpanel);
+		curriculumpanel = new JPanel();
+		curriculumpanel.setBackground(new Color(255, 255, 255));
+		curriculumpanel.setLayout(null);
+		curriculumpanel.setBounds(33, 638, 234, 52);
+		navypanel1_1.add(curriculumpanel);
 
-		c2 = new JLabel("EVENT CALENDAR");
+		c2 = new JLabel("CURRICULUM");
 		c2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchPanel(m3);
+				if ("ICT".equalsIgnoreCase(lblstrand.getText())) {
+					switchPanel(m_ict);
+				}
+				if ("GAS".equalsIgnoreCase(lblstrand.getText())) {
+					switchPanel(m_gas);
+				}
+				if ("HUMMS".equalsIgnoreCase(lblstrand.getText())) {
+					switchPanel(m_humms);
+				}
+				if ("ABM".equalsIgnoreCase(lblstrand.getText())) {
+					switchPanel(m_abm);
+				}
+				if ("STEM".equalsIgnoreCase(lblstrand.getText())) {
+					switchPanel(m_stem);
+				}
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				eventcalendarpanel.setBackground(clickedcolor);
+				curriculumpanel.setBackground(clickedcolor);
 				c2.setForeground(white);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				eventcalendarpanel.setBackground(defaultcolor);
+				curriculumpanel.setBackground(defaultcolor);
 				c2.setForeground(black);
 			}
 		});
 		c2.setHorizontalAlignment(SwingConstants.CENTER);
 		c2.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		c2.setBounds(0, 0, 234, 52);
-		eventcalendarpanel.add(c2);
+		curriculumpanel.add(c2);
 
-		curriculumpanel = new JPanel();
-		curriculumpanel.setBackground(new Color(255, 255, 255));
-		curriculumpanel.setLayout(null);
-		curriculumpanel.setBounds(33, 488, 234, 52);
-		navypanel1_1.add(curriculumpanel);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\eclipse-workspace\\Student-portal\\src\\images\\largeiconccst.png"));
+		lblNewLabel_1.setBounds(51, 25, 198, 200);
+		navypanel1_1.add(lblNewLabel_1);
 
-		c3 = new JLabel("CURRICULUM");
-		c3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				switchPanel(m2);
-			}
+		lblNewLabel_2 = new JLabel("OF  SCIENCE  AND  TECHNOLOGY");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		lblNewLabel_2.setBounds(0, 277, 300, 24);
+		navypanel1_1.add(lblNewLabel_2);
 
-			@Override
-			public void mousePressed(MouseEvent e) {
-				curriculumpanel.setBackground(clickedcolor);
-				c3.setForeground(white);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				curriculumpanel.setBackground(defaultcolor);
-				c3.setForeground(black);
-			}
-		});
-		c3.setHorizontalAlignment(SwingConstants.CENTER);
-		c3.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		c3.setBounds(0, 0, 234, 52);
-		curriculumpanel.add(c3);
+		lblNewLabel_3 = new JLabel("CLARK COLLEGE\r\n");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		lblNewLabel_3.setBounds(0, 236, 300, 42);
+		navypanel1_1.add(lblNewLabel_3);
 
 		navypanel2 = new JPanel();
 		navypanel2.setBackground(new Color(0, 27, 70));
@@ -350,30 +383,7 @@ public class Portal extends JFrame {
 		panel_3.setBounds(10, 11, 643, 552);
 		panelm12.add(panel_3);
 
-		panel_4 = new JPanel();
-		panel_4.setLayout(null);
-		panel_4.setBackground(new Color(0, 27, 70));
-		panel_4.setBounds(250, 112, 383, 429);
-		panel_3.add(panel_4);
-
-		c1_1_1 = new JLabel("SCHOOL ANNOUNCEMENTS");
-		c1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		c1_1_1.setForeground(Color.WHITE);
-		c1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
-		c1_1_1.setBounds(10, 11, 363, 52);
-		panel_4.add(c1_1_1);
-
-		panel_5 = new JPanel();
-		panel_5.setBackground(new Color(0, 27, 70));
-		panel_5.setBounds(10, 112, 224, 199);
-		panel_3.add(panel_5);
-
-		panel_6 = new JPanel();
-		panel_6.setBackground(new Color(0, 27, 70));
-		panel_6.setBounds(10, 342, 224, 199);
-		panel_3.add(panel_6);
-
-		lblName = new JLabel(""); // Initialize lblName
+		lblName = new JLabel(fullName); // Initialize lblName
 		lblName.setBounds(65, 52, 513, 24);
 		panel_3.add(lblName);
 		lblName.setForeground(new Color(0, 0, 0));
@@ -387,107 +397,352 @@ public class Portal extends JFrame {
 		lblWelcome.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 
-		m3 = new JPanel();
-		m3.setLayout(null);
-		m3.setBackground(Color.WHITE);
-		layeredPane.add(m3, "name_13450562873800");
-
-		panelm31 = new JPanel();
-		panelm31.setLayout(null);
-		panelm31.setBackground(new Color(0, 27, 70));
-		panelm31.setBounds(10, 15, 663, 101);
-		m3.add(panelm31);
-
-		c1_1_2 = new JLabel("EVENT CALENDAR");
-		c1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		c1_1_2.setForeground(Color.WHITE);
-		c1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		c1_1_2.setBounds(131, 24, 400, 52);
-		panelm31.add(c1_1_2);
-
-		panelm32 = new JPanel();
-		panelm32.setLayout(null);
-		panelm32.setBackground(new Color(0, 27, 70));
-		panelm32.setBounds(10, 131, 663, 574);
-		m3.add(panelm32);
-
-		panel_2_1 = new JPanel();
-		panel_2_1.setBackground(Color.WHITE);
-		panel_2_1.setBounds(10, 11, 643, 552);
-		panelm32.add(panel_2_1);
-
-		m2 = new JPanel();
-		m2.setLayout(null);
-		m2.setBackground(Color.WHITE);
-		layeredPane.add(m2, "name_13451017978300");
+		m_ict = new JPanel();
+		m_ict.setLayout(null);
+		m_ict.setBackground(Color.WHITE);
+		layeredPane.add(m_ict, "name_13451017978300");
 
 		panelm21 = new JPanel();
 		panelm21.setLayout(null);
 		panelm21.setBackground(new Color(0, 27, 70));
 		panelm21.setBounds(10, 15, 663, 101);
-		m2.add(panelm21);
+		m_ict.add(panelm21);
 
-		c1_1_3 = new JLabel("CURRICULUM");
+		c1_1_3 = new JLabel("CURRICULUM IN ICT");
 		c1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
 		c1_1_3.setForeground(Color.WHITE);
 		c1_1_3.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		c1_1_3.setBounds(154, 24, 355, 52);
+		c1_1_3.setBounds(130, 24, 403, 52);
 		panelm21.add(c1_1_3);
 
 		panelm22 = new JPanel();
 		panelm22.setLayout(null);
 		panelm22.setBackground(new Color(0, 27, 70));
 		panelm22.setBounds(10, 131, 663, 574);
-		m2.add(panelm22);
+		m_ict.add(panelm22);
 
-		panel_2_2 = new JPanel();
-		panel_2_2.setBackground(Color.WHITE);
-		panel_2_2.setBounds(10, 11, 643, 552);
-		panelm22.add(panel_2_2);
-		panel_2_2.setLayout(null);
+		panel_ict = new JPanel();
+		panel_ict.setBackground(Color.WHITE);
+		panel_ict.setBounds(10, 11, 643, 552);
+		panelm22.add(panel_ict);
+		panel_ict.setLayout(null);
 
-		String[] firstsemcolumn = { "CATEGORY", "SUBJECT" };
-		Object[][] firstsemdata = { { "CORE", "DISASTER READINESS AND RISK REDUCTION" },
+		// ---------------------------||ICT||------------------------------//
+
+		String[] firstsemcolumn_ict = { "CATEGORY", "SUBJECT" };
+		Object[][] firstsemdata_ict = { { "CORE", "DISASTER READINESS AND RISK REDUCTION" },
 				{ "CORE", "UNDERSTANDING CULTURE, SOCIETY AND POLITICS" },
 				{ "CORE", "INTRODUCTION TO THE PHILOSOPHY OF THE HUMAN PERSON" },
 				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" },
 				{ "CORE", "KOMUNIKASYON AT PANANALIKSIK SA WIKA AT KULTURANG PILIPINO" },
 				{ "APPLIED", "FILIPINO SA PILING LARANGAN" }, { "APPLIED", "PRACTICAL RESEARCH 2" },
 				{ "SPECIALIZED", "COMPUTER PROGRAMMING 1" }
-				// Add more data as needed
+
 		};
 
-		table = new JTable(firstsemdata, firstsemcolumn);
-		table.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(0, 62, 643, 159);
-		panel_2_2.add(scrollPane);
+		f_table_ict = new JTable(firstsemdata_ict, firstsemcolumn_ict);
+		f_table_ict.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane f_sem_ict = new JScrollPane(f_table_ict);
+		f_sem_ict.setBounds(0, 62, 643, 159);
+		panel_ict.add(f_sem_ict);
 
-		String[] secondsemcolumn = { "CATEGORY", "SUBJECT" };
-		Object[][] secondsemdata = { { "CORE", "CONTEMPORARY PHILIPPINE ARTS FROM THE REGIONS" },
+		String[] secondsemcolumn_ict = { "CATEGORY", "SUBJECT" };
+		Object[][] secondsemdata_ict = { { "CORE", "CONTEMPORARY PHILIPPINE ARTS FROM THE REGIONS" },
 				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" },
 				{ "APPLIED", "ENGLISH FOR ACADEMIC AND PROFESSIONAL PURPOSES" }, { "APPLIED", "ENTREPRENEURSHIP" },
 				{ "APPLIED", "INQUIRIES, INVESTIGATIONS AND IMMERSION" }, { "SPECIALIZED", "COMPUTER PROGRAMMING 2" }
-				// Add more data as needed
+
 		};
 
-		table_1 = new JTable(secondsemdata, secondsemcolumn);
-		table_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
-		JScrollPane scrollPane1 = new JScrollPane(table_1);
-		scrollPane1.setBounds(0, 260, 643, 124);
-		panel_2_2.add(scrollPane1);
+		s_table_ict = new JTable(secondsemdata_ict, secondsemcolumn_ict);
+		s_table_ict.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane s_sem_ict = new JScrollPane(s_table_ict);
+		s_sem_ict.setBounds(0, 260, 643, 124);
+		panel_ict.add(s_sem_ict);
 
 		JLabel headerLabel1 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel1.setForeground(new Color(0, 27, 70));
 		headerLabel1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
 		headerLabel1.setBounds(7, 31, 629, 20);
-		panel_2_2.add(headerLabel1);
+		panel_ict.add(headerLabel1);
 
 		JLabel headerLabel2 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
 		headerLabel2.setForeground(new Color(0, 27, 70));
 		headerLabel2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
 		headerLabel2.setBounds(0, 229, 629, 20);
-		panel_2_2.add(headerLabel2);
+		panel_ict.add(headerLabel2);
+
+		m_humms = new JPanel();
+		m_humms.setLayout(null);
+		m_humms.setBackground(Color.WHITE);
+		layeredPane.add(m_humms);
+
+		panelm31 = new JPanel();
+		panelm31.setLayout(null);
+		panelm31.setBackground(new Color(0, 27, 70));
+		panelm31.setBounds(10, 15, 663, 101);
+		m_humms.add(panelm31);
+
+		c1_1_2 = new JLabel("CURRICULUM IN HUMMS");
+		c1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_2.setForeground(Color.WHITE);
+		c1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_2.setBounds(95, 24, 473, 52);
+		panelm31.add(c1_1_2);
+
+		panelm32 = new JPanel();
+		panelm32.setLayout(null);
+		panelm32.setBackground(new Color(0, 27, 70));
+		panelm32.setBounds(10, 131, 663, 574);
+		m_humms.add(panelm32);
+
+		panel_humms = new JPanel();
+		// ------------------||HUMMS||-----------------//
+
+		String[] firstsemcolumn_humms = { "CATEGORY", "SUBJECT" };
+		Object[][] firstsemdata_humms = { { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" },
+				{ "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+
+		f_table_humms = new JTable(firstsemdata_humms, firstsemcolumn_humms);
+		f_table_humms.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane f_sem_humms = new JScrollPane(f_table_humms);
+		f_sem_humms.setBounds(0, 62, 643, 159);
+		panel_humms.add(f_sem_humms);
+
+		String[] secondsemcolumn_humms = { "CATEGORY", "SUBJECT" };
+		Object[][] secondsemdata_humms = { { "CORE", "-" }, { "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" },
+				{ "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+		s_table_humms = new JTable(secondsemdata_humms, secondsemcolumn_humms);
+		s_table_humms.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane s_sem_humms = new JScrollPane(s_table_humms);
+		s_sem_humms.setBounds(0, 260, 643, 124);
+		panel_humms.add(s_sem_humms);
+
+		panel_humms.setLayout(null);
+		panel_humms.setBackground(Color.WHITE);
+		panel_humms.setBounds(10, 11, 643, 552);
+		panelm32.add(panel_humms);
+
+		headerLabel1_1 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel1_1.setForeground(new Color(0, 27, 70));
+		headerLabel1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel1_1.setBounds(7, 31, 629, 20);
+		panel_humms.add(headerLabel1_1);
+
+		headerLabel2_1 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel2_1.setForeground(new Color(0, 27, 70));
+		headerLabel2_1.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel2_1.setBounds(0, 229, 629, 20);
+		panel_humms.add(headerLabel2_1);
+
+		m_abm = new JPanel();
+		m_abm.setLayout(null);
+		m_abm.setBackground(Color.WHITE);
+		layeredPane.add(m_abm, "name_35699368361700");
+
+		panelm41 = new JPanel();
+		panelm41.setLayout(null);
+		panelm41.setBackground(new Color(0, 27, 70));
+		panelm41.setBounds(10, 15, 663, 101);
+		m_abm.add(panelm41);
+
+		c1_1_4 = new JLabel("CURRICULUM IN ABM");
+		c1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_4.setForeground(Color.WHITE);
+		c1_1_4.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_4.setBounds(95, 24, 473, 52);
+		panelm41.add(c1_1_4);
+
+		panelm42 = new JPanel();
+		panelm42.setLayout(null);
+		panelm42.setBackground(new Color(0, 27, 70));
+		panelm42.setBounds(10, 131, 663, 574);
+		m_abm.add(panelm42);
+
+		panel_abm = new JPanel();
+		panel_abm.setLayout(null);
+		panel_abm.setBackground(Color.WHITE);
+		panel_abm.setBounds(10, 11, 643, 552);
+		panelm42.add(panel_abm);
+
+		// ------------------||ABM||-----------------//
+
+		String[] firstsemcolumn_abm = { "CATEGORY", "SUBJECT" };
+		Object[][] firstsemdata_abm = { { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" },
+				{ "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+
+		f_table_abm = new JTable(firstsemdata_abm, firstsemcolumn_abm);
+		f_table_abm.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane f_sem_abm = new JScrollPane(f_table_abm);
+		f_sem_abm.setBounds(0, 62, 643, 159);
+		panel_abm.add(f_sem_abm);
+
+		String[] secondsemcolumn_abm = { "CATEGORY", "SUBJECT" };
+		Object[][] secondsemdata_abm = { { "CORE", "-" }, { "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" },
+				{ "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+		s_table_abm = new JTable(secondsemdata_abm, secondsemcolumn_abm);
+		s_table_abm.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane s_sem_abm = new JScrollPane(s_table_abm);
+		s_sem_abm.setBounds(0, 260, 643, 124);
+		panel_abm.add(s_sem_abm);
+
+		headerLabel1_2 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel1_2.setForeground(new Color(0, 27, 70));
+		headerLabel1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel1_2.setBounds(7, 31, 629, 20);
+		panel_abm.add(headerLabel1_2);
+
+		headerLabel2_2 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel2_2.setForeground(new Color(0, 27, 70));
+		headerLabel2_2.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel2_2.setBounds(0, 229, 629, 20);
+		panel_abm.add(headerLabel2_2);
+
+		m_stem = new JPanel();
+		m_stem.setLayout(null);
+		m_stem.setBackground(Color.WHITE);
+		layeredPane.add(m_stem, "name_35792328331400");
+
+		panelm51 = new JPanel();
+		panelm51.setLayout(null);
+		panelm51.setBackground(new Color(0, 27, 70));
+		panelm51.setBounds(10, 15, 663, 101);
+		m_stem.add(panelm51);
+
+		c1_1_5 = new JLabel("CURRICULUM IN STEM");
+		c1_1_5.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_5.setForeground(Color.WHITE);
+		c1_1_5.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_5.setBounds(95, 24, 473, 52);
+		panelm51.add(c1_1_5);
+
+		panelm52 = new JPanel();
+		panelm52.setLayout(null);
+		panelm52.setBackground(new Color(0, 27, 70));
+		panelm52.setBounds(10, 131, 663, 574);
+		m_stem.add(panelm52);
+
+		panel_stem = new JPanel();
+		panel_stem.setLayout(null);
+		panel_stem.setBackground(Color.WHITE);
+		panel_stem.setBounds(10, 11, 643, 552);
+		panelm52.add(panel_stem);
+
+		// ------------------||STEM||-----------------//
+
+		String[] firstsemcolumn_stem = { "CATEGORY", "SUBJECT" };
+		Object[][] firstsemdata_stem = { { "CORE", "CONTEMPORARY PHILIPPINE ARTS FROM THE REGIONS	" },
+				{ "CORE", "INTRODUCTION TO THE PHILOSOPHY OF THE HUMAN PERSON" },
+				{ "CORE", "MEDIA AND INFORMATION LITERACY" }, { "CORE", "UNDERSTANDING CULTURE, SOCIETY AND POLITICS" },
+				{ "CORE", "PHYSICAL EDUCATION AND HEALTH" }, { "APPLIED", "RESEARCH IN DAILY LIFE 2" },
+				{ "APPLIED", "FILIPINO SA PILING LARANGAN" }, { "SPECIALIZED", "GENERAL PHYSICS 1" },
+				{ "SPECIALIZED", "GENERAL BIOLOGY 1" }
+
+		};
+
+		f_table_stem = new JTable(firstsemdata_stem, firstsemcolumn_stem);
+		f_table_stem.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane f_sem_stem = new JScrollPane(f_table_stem);
+		f_sem_stem.setBounds(0, 62, 643, 180);
+		panel_stem.add(f_sem_stem);
+
+		String[] secondsemcolumn_stem = { "CATEGORY", "SUBJECT" };
+		Object[][] secondsemdata_stem = { { "CORE", "-" }, { "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" },
+				{ "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+		s_table_stem = new JTable(secondsemdata_stem, secondsemcolumn_stem);
+		s_table_stem.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane s_sem_stem = new JScrollPane(s_table_stem);
+		s_sem_stem.setBounds(0, 293, 643, 124);
+		panel_stem.add(s_sem_stem);
+
+		headerLabel1_3 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel1_3.setForeground(new Color(0, 27, 70));
+		headerLabel1_3.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel1_3.setBounds(7, 31, 629, 20);
+		panel_stem.add(headerLabel1_3);
+
+		headerLabel2_3 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel2_3.setForeground(new Color(0, 27, 70));
+		headerLabel2_3.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel2_3.setBounds(0, 262, 629, 20);
+		panel_stem.add(headerLabel2_3);
+
+		m_gas = new JPanel();
+		m_gas.setLayout(null);
+		m_gas.setBackground(Color.WHITE);
+		layeredPane.add(m_gas, "name_111243073341100");
+
+		panelm61 = new JPanel();
+		panelm61.setLayout(null);
+		panelm61.setBackground(new Color(0, 27, 70));
+		panelm61.setBounds(10, 15, 663, 101);
+		m_gas.add(panelm61);
+
+		c1_1_1 = new JLabel("CURRICULUM IN STEM");
+		c1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		c1_1_1.setForeground(Color.WHITE);
+		c1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		c1_1_1.setBounds(95, 24, 473, 52);
+		panelm61.add(c1_1_1);
+
+		panelm62 = new JPanel();
+		panelm62.setLayout(null);
+		panelm62.setBackground(new Color(0, 27, 70));
+		panelm62.setBounds(10, 131, 663, 574);
+		m_gas.add(panelm62);
+
+		panel_gas = new JPanel();
+		panel_gas.setLayout(null);
+		panel_gas.setBackground(Color.WHITE);
+		panel_gas.setBounds(10, 11, 643, 552);
+		panelm62.add(panel_gas);
+
+		// ------------------||GAS||-----------------//
+
+		String[] firstsemcolumn_gas = { "CATEGORY", "SUBJECT" };
+		Object[][] firstsemdata_gas = { { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" }, { "CORE", "-" },
+				{ "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+		f_table_gas = new JTable(firstsemdata_gas, firstsemcolumn_gas);
+		f_table_gas.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane f_sem_gas = new JScrollPane(f_table_gas);
+		f_sem_gas.setBounds(0, 62, 643, 180);
+		panel_gas.add(f_sem_gas);
+
+		String[] secondsemcolumn_gas = { "CATEGORY", "SUBJECT" };
+		Object[][] secondsemdata_gas = { { "CORE", "-" }, { "CORE", "-" }, { "APPLIED", "-" }, { "APPLIED", "-" },
+				{ "APPLIED", "-" }, { "SPECIALIZED", "-" }
+
+		};
+
+		s_table_gas = new JTable(secondsemdata_gas, secondsemcolumn_gas);
+		s_table_gas.setFont(new Font("Trebuchet MS", Font.PLAIN, 10));
+		JScrollPane s_sem_gas = new JScrollPane(s_table_gas);
+		s_sem_gas.setBounds(0, 293, 643, 124);
+		panel_gas.add(s_sem_gas);
+
+		headerLabel2_4 = new JLabel("SECOND SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel2_4.setForeground(new Color(0, 27, 70));
+		headerLabel2_4.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel2_4.setBounds(0, 262, 629, 20);
+		panel_gas.add(headerLabel2_4);
+
+		headerLabel1_4 = new JLabel("FIRST SEMESTER SUBJECT INFORMATION", SwingConstants.CENTER);
+		headerLabel1_4.setForeground(new Color(0, 27, 70));
+		headerLabel1_4.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		headerLabel1_4.setBounds(7, 31, 629, 20);
+		panel_gas.add(headerLabel1_4);
 
 		setUndecorated(true);
 		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 100, 100));
@@ -507,9 +762,7 @@ public class Portal extends JFrame {
 			}
 		});
 
-		setWelcomeText(fullName);
 		setinfo(studentname, studentnumber, strand, section, sy, contactnumber);
-//		setPersonalInfo(studentname, studentnumber, strand, section, sy, contactnumber);
 	}
 
 	private void setinfo(String studentname, String studentNumber, String strand, String section, String sy,
@@ -520,41 +773,5 @@ public class Portal extends JFrame {
 		lblsection.setText(section);
 		lblsy.setText(sy);
 		lblcontact.setText(contactnumber);
-	}
-//	private void setPersonalInfo(String studentNumber, String strand, String section, String sy, String contactnumber) {
-//		try {
-//			String query = "SELECT student_name FROM Userlogin WHERE student_number = ? AND strand = ? AND section = ? AND school_year = ? AND contact_number = ?";
-//			pst = conn.prepareStatement(query);
-//			pst.setString(1, studentNumber);
-//			pst.setString(2, strand);
-//			pst.setString(3, section);
-//			pst.setString(4, sy);
-//			pst.setString(5, contactnumber);
-//			rs = pst.executeQuery();
-//
-//			if (rs.next()) {
-//				String studentName = rs.getString("student_name");
-//				lblname.setText(studentName); // Assuming lblname is your JLabel for displaying student name
-//			} else {
-//				// Handle case where no student with given criteria is found
-//				lblname.setText("Student not found");
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			// Handle any SQL exceptions
-//		} finally {
-//			try {
-//				if (rs != null)
-//					rs.close();
-//				if (pst != null)
-//					pst.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-
-	private void setWelcomeText(String fullName) {
-		lblName.setText(fullName); // Update text of lblName
 	}
 }
